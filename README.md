@@ -18,7 +18,23 @@ Dependências:
 - HTML
 - CSS
 - JavaScript
+- UML
 
+
+<br />
+
+
+### Imagem do Diagrama de Casos de Uso para a modelagem do app:
+
+![Imagem do Diagrama de Casos de Uso para a modelagem do app](/public/myBookshelf-use-cases-diagram.png)
+
+
+<br />
+
+
+### Imagem do modelo de Wireframe para o site:
+
+![Imagem do modelo de Wireframe para o site](/public/website-wireframe.png)
 
 
 <br />
@@ -26,10 +42,29 @@ Dependências:
 
 ### Imagem da tela:
 
-![Imagem da tela do jogo com valor de grid inicial](/public/images/)
+![Imagem da tela do jogo com novo valor de grid](/public/images/)
 
 
 <br />
+
+
+
+### Imagem da tela:
+
+![Imagem da tela do jogo com novo valor de grid](/public/images/)
+
+
+<br />
+
+
+
+### Imagem da tela:
+
+![Imagem da tela do jogo com novo valor de grid](/public/images/)
+
+
+<br />
+
 
 
 ### Imagem da tela:
