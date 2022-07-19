@@ -1,0 +1,129 @@
+/* CSS RESET - meyerweb.com */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+body { 
+    font-family: Roboto, Sans-serif; 
+    background-color: #fff; /*#f5e34752;*/
+    color: #7d6969; /*#716c6c; #7d6969*/
+    
+    
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    color: black;
+}
+
+li {
+    color: #5e2121;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.header, .welcome-section, .action-section {
+    padding: 16px 100px 60px;
+}
+
+.header {
+    background-color: #1F2937;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__navbar {
+    display: flex;
+    gap: 24px;
+}
+
+.header__navbar a {
+    color: #E5E7EB;
+}
+
+.header__navbar a:hover {
+    color: #3882F6; /*#49a6e9;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-section {
+    color: white;
+    background-color: #1F2937;
+    padding: 20px;
+    
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+
