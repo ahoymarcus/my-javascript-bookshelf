@@ -18,7 +18,9 @@ Dependências:
 - HTML
 - CSS
 - JavaScript
-- UML
+- UML (StarUML)
+- Wireframe (Figma)
+- Layout (Figma)
 
 
 <br />
@@ -40,9 +42,9 @@ Dependências:
 <br />
 
 
-### Imagem da tela:
+### Imagem do Layout da Home Page do Bookshelf app:
 
-![Imagem da tela do jogo com novo valor de grid](/public/images/)
+![Imagem do Layout da Home Page do Bookshelf app](/public/myBookshelf-layout-home-page.png)
 
 
 <br />
