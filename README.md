@@ -1,9 +1,9 @@
-# Library - JavaScript OOP Project
+# My JavaScript Bookshelf - OOP Project
  
 
 <br />
 
-This project aims to model a personal book library using JavaScript and the Object Oriented Program Paradigm.
+This project aims to model a personal library using JavaScript and the Object Oriented Program Paradigm.
 
 <br />
 
