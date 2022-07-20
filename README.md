@@ -17,6 +17,7 @@ Dependências:
 
 - HTML
 - CSS
+- CSS Patterns
 - JavaScript
 - UML (StarUML)
 - Wireframe (Figma)
