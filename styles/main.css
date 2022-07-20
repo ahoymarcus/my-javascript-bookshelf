@@ -108,9 +108,17 @@ body {
 	
 }
 
-.hr-shelf-support
- {
-	margin: 0;
+.div-shelf-support-top {
+	background-color: #b9afaf;
+	width: 97%;
+	height: 15px;
+	margin: auto;
+}
+.div-shelf-support-bottom {
+	background-color: #b9afaf;
+	width: 94%;
+	height: 15px;
+	margin: auto;
 }
 
 .header {
@@ -124,6 +132,7 @@ body {
 .header__logo {
 	background-color: #E99797;
 	font-size: 1.2rem;
+	margin-left: 3px;
 	padding: 18px 2px;
 }
 
@@ -142,11 +151,9 @@ body {
 }
 .header__navbar li:nth-child(4) {
 	background-color: #F6D493;
+	margin-right: 3px;
 }
 
-.header__navbar a {
-	
-}
 
 .header__navbar a:hover, .footer__link a:hover {
 	color: #3882F6; /*#49a6e9;*/
@@ -172,6 +179,9 @@ body {
 
 .description-partition {
 	width: 74%;
+	min-width: 244px;
+	max-width: 274px;
+	margin-top: 0.5px;
 	margin-bottom: 110px;
 }
 
@@ -185,12 +195,50 @@ body {
 .booklist-partition {
 	width: 96%;
 	overflow: auto;
+	margin-bottom: 0.5px;
 }
 
-.shelf-ornament {
+.inner-shelf-ornament {
 	background-color: #EDAEAE;
 	height: 10px;
 	/*margin: 5px 0 2px 0;*/
+}
+
+.div-wall-ornament {
+	background-color: #F6D493;
+	width: 64%;
+	height: 10px;
+	margin: auto;
+}
+
+
+.book-stack-icon {
+	color: #b9afaf;
+	display: block;
+	margin: auto;
+	text-align: center;
+}
+
+.div-wall-ornament-acute1 {
+	background-color: #F6D493;
+	width: 74%;
+	height: 10px;
+	margin: 0 auto 10px;
+	border-radius: 4px;
+}
+.div-wall-ornament-acute2 {
+	background-color: #F6D493;
+	width: 64%;
+	height: 10px;
+	margin: 0 auto 10px;
+	border-radius: 4px;
+}
+.div-wall-ornament-acute3 {
+	background-color: #F6D493;
+	width: 34%;
+	height: 10px;
+	margin: 0 auto 90px;
+	border-radius: 4px;
 }
 
 .shelves {
@@ -275,10 +323,17 @@ body {
 	color: black;
 	background-color: #9290F8;
 	font-size: 1.1rem;
+	margin-right: 4px;
 	padding: 0 2px 2px 2px;
 	border-radius: 4px;
 }
 
+
+/*
+@media (720px) {
+	
+}
+*/
 
 
 /* TESTING COLOR */

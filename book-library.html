@@ -23,32 +23,30 @@
 		</nav>
 		
 	</header>
-	<hr class="hr-shelf-support" />
+	<div class="div-shelf-support-top"></div>
 	
-	
-	
+	<div class="div-wall-ornament" ></div>
 	
 	<main>
 	
 		<section class="description-partition" >
 			<div class="shelves description-shelf" >
 				<h1 class="description-section__app-title">JavaScript <span>Bookshelf</span></h1>
-				<div class="shelf-ornament" ></div>
+				<div class="inner-shelf-ornament" ></div>
 			</div>
 		</section>
 		
-	
-	
-		<section class="form-partition" >
-			<div class="shelves form-shelf" >
-				<h2>Form and About</h2>
-			</div>
-		</section>
-	
 		
-		<!-- <div class="color-test"> -->
-			<!-- <h2>TEST</h2> -->
-		<!-- </div> -->
+		<a  class="book-stack-icon" target="_blank" href="https://icons8.com/icon/95123/book-stack">
+			<img  src="./public/images/icons8-book-stack-64.png" alt="book stack icon" />
+			<span>icon by Icons8</span>
+		</a> 
+
+		
+		<div class="div-wall-ornament-acute1" ></div>
+		<div class="div-wall-ornament-acute2" ></div>
+		<div class="div-wall-ornament-acute3" ></div>
+		
 		
 		
 		<!--
@@ -58,6 +56,48 @@
 				numPages
 				bookState
 		-->
+		<section class="form-partition" >
+			<div class="shelves form-shelf" >
+				<h2>Add Book to the Library</h2>
+				
+				<label for="title">
+					Book title: 
+					<input 
+						type="text"
+						id="title" 
+						name="title"
+					/>
+				</label>
+				<label for="author">
+					Author's name:
+					<input 
+						type="text"
+						id="author" 
+						name="author"
+					/>
+				</label>
+				<label for="num-pages">
+					Number of pages:
+					<input 
+						type="number"
+						id="num-pages" 
+						name="num-pages"
+					/>
+				</label>
+				<label for="is-read">
+					<input 
+						type="checkbox"
+						id="is-read" 
+						name="is-read"
+					/>
+					Has it been read already?
+				</label>
+				
+				<button>Add Book</button>
+			</div>
+		</section>
+	
+		
 		<section class="booklist-partition" >
 			<div class="shelves booklist-shelf" >
 				<ul>
@@ -111,7 +151,7 @@
 	
 
 	
-	<hr class="hr-shelf-support" />
+	<div class="div-shelf-support-bottom"></div>
 	<footer class="footer">
 		<span class="footer__link"><a target="_blank" href="https://www.linkedin.com/in/marcus-vinicius-richa-183104199/">Linkedin</a></span>
 		<span class="footer__description">Marcus Richa - Web Developer</span>
