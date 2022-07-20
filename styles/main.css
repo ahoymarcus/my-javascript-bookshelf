@@ -104,7 +104,12 @@ h4 {
 	font-size: 1rem;
 }
 
-.shelf-support {
+body {
+	
+}
+
+.hr-shelf-support
+ {
 	margin: 0;
 }
 
@@ -112,11 +117,14 @@ h4 {
 	background-color: transparent; /* #1F2937;*/
 	display: flex;
 	justify-content: space-between;
-	margin: 0 2px 0 4px;
+	align-items: end;
+	margin: 0 2px 0 2px;
 }
 
 .header__logo {
 	background-color: #E99797;
+	font-size: 1.2rem;
+	padding: 18px 2px;
 }
 
 .header__navbar {
@@ -125,6 +133,9 @@ h4 {
 
 .header__navbar li {
 	background-color: #b9afaf; /*#D9D9D9;*/
+	font-size: 1.2rem;
+	margin-left: 4px;
+	padding: 2px 2px 0 2px;
 }
 .header__navbar li:nth-child(2) {
 	background-color: #9290F8;
@@ -166,13 +177,13 @@ h4 {
 
 .form-partition {
 	margin-bottom: 110px;
-	width: 95%;
+	width: 96%;
 	height: 200px;
 }
 
 
 .booklist-partition {
-	width: 95%;
+	width: 96%;
 	overflow: auto;
 }
 
@@ -187,11 +198,14 @@ h4 {
 	width: 90%;
 	border-radius: 2px;
 	margin: auto;
+	padding: 4px 0;
 }
 
 .description-shelf {
 	padding: 8px;
 	text-align: center;
+	border: 2px solid #a18e72;
+	border-radius:12px;
 }
 
 .form-shelf {
@@ -204,10 +218,13 @@ h4 {
 
 .book {
 	background-color: #484787; /*#E99797; #6c2f2f;*/
-	margin-bottom: 5px;
-	padding: 8px;
+	margin: 0 4px 5px;
 	display: flex;
 	align-items: center;
+	min-height: 108px;
+	max-height: 108px;
+	border: 2px solid #9c6006;
+	border-radius:12px;
 }
 
 .book:last-child {
@@ -247,11 +264,19 @@ h4 {
 }
 
 .footer__link a {
+	color: #30495e;
 	background-color: #b9afaf; /*#D9D9D9;*/
+	font-size: 1.1rem;
+	padding: 0 2px 2px 2px;
+	border-radius: 4px;
 }
 
 .footer__description {
+	color: black;
 	background-color: #9290F8;
+	font-size: 1.1rem;
+	padding: 0 2px 2px 2px;
+	border-radius: 4px;
 }
 
 
