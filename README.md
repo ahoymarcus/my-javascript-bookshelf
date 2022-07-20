@@ -42,9 +42,52 @@ Dependências:
 <br />
 
 
-### Imagem do Layout da Home Page do Bookshelf app:
+### Imagem do Layout da Home Page do Bookshelf app para dispositivos pequenos:
 
-![Imagem do Layout da Home Page do Bookshelf app](/public/myBookshelf-layout-home-page.png)
+![Imagem do Layout da Home Page do Bookshelf app para dispositivos pequenos](/public/myBookshelf-layout-home-page-(358x617).png)
+
+
+<br />
+
+
+### Imagem do Layout da Home Page do Bookshelf app para dispositivos médios:
+
+![Imagem do Layout da Home Page do Bookshelf app para dispositivos médios](/public/myBookshelf-layout-home-page-(876x656).png)
+
+
+<br />
+
+
+### Imagem do Layout da Home Page do Bookshelf app para dispositivos grandes:
+
+![Imagem do Layout da Home Page do Bookshelf app para dispositivos grandes](/public/myBookshelf-layout-home-page-(1156x1008).png)
+
+
+<br />
+
+
+
+### Imagem da tela:
+
+![Imagem da tela do jogo com novo valor de grid](/public/images/)
+
+
+<br />
+
+
+
+### Imagem da tela:
+
+![Imagem da tela do jogo com novo valor de grid](/public/images/)
+
+
+<br />
+
+
+
+### Imagem da tela:
+
+![Imagem da tela do jogo com novo valor de grid](/public/images/)
 
 
 <br />

@@ -1,5 +1,5 @@
 /*
-* figma 5' 22''
+* 
 */
 let myLibrary = [];
             
