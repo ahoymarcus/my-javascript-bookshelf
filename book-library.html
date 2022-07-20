@@ -12,11 +12,12 @@
 <body>
 		
 	<header class="header">
-		<span class="header__logo">myLogo</span>
+		<span class="header__logo"><a href="#">myLogo</a></span>
 		<nav>
 			<ul class="header__navbar">
+				<li><a href="#">About</a></li>
 				<li><a target="_blank" href="https://github.com/ahoymarcus">GitHub</a></li>
-				<li><a target="_blank" href="https://nextjs-myjs-tech-blog.vercel.app/">myJSTechBlog</a></li>
+				<li><a target="_blank" href="https://nextjs-myjs-tech-blog.vercel.app/">myTechBlog</a></li>
 				<li><a target="_blank" href="https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/">myPortfolio</a></li>
 			</ul>
 		</nav>
@@ -29,32 +30,84 @@
 	
 	<main>
 	
-		<section class="description-section" >
-			<h1 class="description-section__app-title">My JavaScript Bookshelf</h1>
-		
+		<section class="description-partition" >
+			<div class="shelves description-shelf" >
+				<h1 class="description-section__app-title">JavaScript <span>Bookshelf</span></h1>
+				<div class="shelf-ornament" ></div>
+			</div>
 		</section>
 		
 	
 	
-		<section class="description-form" >
-		
-		
+		<section class="form-partition" >
+			<div class="shelves form-shelf" >
+				<h2>Form and About</h2>
+			</div>
 		</section>
 	
-	
-	
-		<section class="description-book-list" >
+		
+		<!-- <div class="color-test"> -->
+			<!-- <h2>TEST</h2> -->
+		<!-- </div> -->
 		
 		
-		
+		<!--
+				'The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet'
+				title
+				author
+				numPages
+				bookState
+		-->
+		<section class="booklist-partition" >
+			<div class="shelves booklist-shelf" >
+				<ul>
+					<li class="book" >
+						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+						<div>
+							<h3>The Hobbit</h3>
+							<h4>J.R.R. Tolkien</h4>
+							<p>295 pages</p>
+							<p>not read yet</p>
+						</div>
+					</li>
+					<li class="book" >
+						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+						<div>
+							<h3>The Fellowshiop of the Ring</h3>
+							<h4>J.R.R. Tolkien</h4>
+							<p>395 pages</p>
+							<p>not read yet</p>
+						</div>
+					</li>
+					<li class="book" >
+						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+						<div>
+							<h3>The Two Towers</h3>
+							<h4>J.R.R. Tolkien</h4>
+							<p>395 pages</p>
+							<p>not read yet</p>
+						</div>
+					</li>
+					<li class="book" >
+						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+						<div>
+							<h3>The Return of the King</h3>
+							<h4>J.R.R. Tolkien</h4>
+							<p>395 pages</p>
+							<p>not read yet</p>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</section>
 	
-	
+		
+		
 	
 	
 	</main>
 	
-	
+
 	
 
 	
