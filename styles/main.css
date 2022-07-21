@@ -197,7 +197,6 @@ h5 {
 	max-width: 331px;
 }
 
-
 .booklist-partition {
 	width: 96%;
 	max-width: 420px;331
@@ -247,7 +246,7 @@ h5 {
 	background-color: #F6D493;
 	width: 34%;
 	height: 10px;
-	margin: 0 auto 90px;
+	margin: 0 auto 160px;
 	border-radius: 4px;
 }
 
@@ -266,6 +265,31 @@ h5 {
 	border-radius:12px;
 }
 
+.required-field {
+	color: #e02525;
+}
+
+.form-validation {
+	color: #efb1b1;
+	font-weight: bold;
+	background-color: #cccaca2e; /*#CCCACA;*/
+	text-align: center;
+	width: 290px;
+	height: 110px;
+	margin: auto;
+	padding: 6px;
+	border-radius: 4px;
+	position: relative;
+	bottom: 25px;
+	
+	display: none;
+}
+.form-validation p {
+	color: #efb1b1;
+	font-weight: bold;
+	margin-top: 5px;
+	line-height: 30px;
+}
 
 .form-shelf {
 	display: block;
@@ -362,8 +386,8 @@ h5 {
 	color: #30495e;
 	background-color: #b9afaf; /*#D9D9D9;*/
 	font-size: 1.1rem;
-	padding: 0 2px 4px 2px;
-	border-radius: 4px;
+	padding: 0 6px 4px 6px;
+	border-radius: 10px;
 	line-height: 28px;
 }
 .footer__link a {
@@ -375,7 +399,7 @@ h5 {
 	background-color: #9290F8;
 	font-size: 1.1rem;
 	margin-right: 4px;
-	padding: 0 2px 4px 2px;
+	padding: 0 6px 4px 6px;
 	border-radius: 4px;
 	line-height: 28px;
 }
@@ -384,6 +408,15 @@ h5 {
 @media only screen and (min-width: 540px) {
 	.div-shelf-support-top {
 		width: 87%;
+	}
+	
+	.header__logo {
+		padding-left: 6px;
+		padding-right: 6px;
+	}
+	.header__navbar li { 
+		padding-left: 6px;
+		padding-right: 6px;
 	}
 }
 
@@ -417,7 +450,6 @@ h5 {
 	}
 	.div-wall-ornament-acute3 {
 		width: 14%;
-		margin-bottom: 45px;
 	}
 	
 	.form-partition {

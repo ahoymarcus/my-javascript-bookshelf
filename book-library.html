@@ -45,7 +45,7 @@
 		
 		<div class="div-wall-ornament-acute1" ></div>
 		<div class="div-wall-ornament-acute2" ></div>
-		<div class="div-wall-ornament-acute3" ></div>
+		<div id="third-ornament" class="div-wall-ornament-acute3" ></div>
 		
 		
 		
@@ -56,13 +56,14 @@
 				numPages
 				bookState
 		-->
+		<div id="form-validate" class="form-validation"></div>
 		<div class="book-partitions-container">
 			<section class="form-partition" >
 				<div class="shelves form-shelf" >		
 					<h4 class="form-shelf__desc" >Let's add some amazing new books!</h4>
 					
 						<label for="title">
-							<h4>BOOK TITLE</h4>
+							<h4>BOOK TITLE <span class="required-field">*...</span></h4>
 							<input 
 								type="text"
 								id="title" 
@@ -71,7 +72,7 @@
 						</label>
 				
 						<label for="author">
-							<h4>AUTHOR'S NAME</h4>
+							<h4>AUTHOR'S NAME <span class="required-field">*...</span></h4>
 							<input 
 								type="text"
 								id="author" 

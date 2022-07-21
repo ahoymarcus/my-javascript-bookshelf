@@ -16,6 +16,7 @@ This project aims to model a personal library using JavaScript and the Object Or
 Dependências:
 
 - HTML
+- HTML Forms Validation
 - CSS
 - CSS Patterns
 - JavaScript
