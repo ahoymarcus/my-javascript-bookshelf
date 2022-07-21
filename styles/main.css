@@ -199,7 +199,8 @@ h5 {
 
 .booklist-partition {
 	width: 96%;
-	max-width: 420px;331
+	max-width: 420px; /*420 + 331 */
+	max-height: 455px;
 	overflow: auto;
 	margin-bottom: 0.5px;
 }
@@ -226,6 +227,9 @@ h5 {
 }
 .book-stack-icon a {
 	color: #b9afaf;
+}
+.book-stack-icon a:hover {
+	text-shadow: 2px 2px white;
 }
 
 .div-wall-ornament-acute1 {
