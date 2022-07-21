@@ -101,32 +101,37 @@ h3 {
 	font-size: 1.5rem;
 }
 h4 {
+	font-size: 1.2rem;
+}
+h5 {
 	font-size: 1rem;
 }
 
-body {
-	
-}
 
 .div-shelf-support-top {
 	background-color: #b9afaf;
 	width: 97%;
+	/* max-width: 475px; */
 	height: 15px;
 	margin: auto;
+	border-radius: 5px;
 }
 .div-shelf-support-bottom {
 	background-color: #b9afaf;
 	width: 94%;
+	max-width: 413px;
 	height: 15px;
 	margin: auto;
+	border-radius: 5px;
 }
 
 .header {
 	background-color: transparent; /* #1F2937;*/
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: end;
-	margin: 0 2px 0 2px;
+	width: 98%;
+	margin: auto;
 }
 
 .header__logo {
@@ -138,6 +143,7 @@ body {
 
 .header__navbar {
 	display: flex;
+	justify-content: space-around;
 }
 
 .header__navbar li {
@@ -188,12 +194,13 @@ body {
 .form-partition {
 	margin-bottom: 110px;
 	width: 96%;
-	height: 200px;
+	max-width: 331px;
 }
 
 
 .booklist-partition {
 	width: 96%;
+	max-width: 420px;331
 	overflow: auto;
 	margin-bottom: 0.5px;
 }
@@ -207,16 +214,19 @@ body {
 .div-wall-ornament {
 	background-color: #F6D493;
 	width: 64%;
+	max-width: 221px;
 	height: 10px;
 	margin: auto;
 }
 
 
 .book-stack-icon {
-	color: #b9afaf;
 	display: block;
 	margin: auto;
 	text-align: center;
+}
+.book-stack-icon a {
+	color: #b9afaf;
 }
 
 .div-wall-ornament-acute1 {
@@ -256,12 +266,47 @@ body {
 	border-radius:12px;
 }
 
+
 .form-shelf {
-	height: 168px;
-	
+	display: block;
+	width: 90%;
+	margin: auto;
 }
 
+.form-shelf__desc {
+	color: #695425;
+	text-align: center;
+	margin: 10px 0 30px;;
+}
 
+.form-shelf label {
+	color: #5e4c4c;
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.form-shelf input[type="text"] {
+	display: block;
+	width: 100%;
+	margin: 5px 0 20px 0;
+}
+
+.form-shelf input[type="number"] {
+	width: 25%;
+	margin-bottom: 10px;
+}
+
+.form-shelf input[type="checkbox"] {
+	margin-bottom: 35px;
+}
+
+.form-btn {
+	display: block;
+	margin: 0 auto 10px;
+	
+}
 
 
 .book {
@@ -293,7 +338,7 @@ body {
 	margin-bottom: 2px;
 }
 
-.book h4 {
+.book h5 {
 	color: #b9afaf;
 	margin-bottom: 6px;
 }
@@ -309,14 +354,20 @@ body {
 	display: flex;
 	justify-content: space-between;
 	padding: 0 6px 0 10px;
+	max-width: 413px;
+	margin: auto;
 }
 
-.footer__link a {
+.footer__link {
 	color: #30495e;
 	background-color: #b9afaf; /*#D9D9D9;*/
 	font-size: 1.1rem;
-	padding: 0 2px 2px 2px;
+	padding: 0 2px 4px 2px;
 	border-radius: 4px;
+	line-height: 28px;
+}
+.footer__link a {
+	color: #30495e;
 }
 
 .footer__description {
@@ -324,22 +375,72 @@ body {
 	background-color: #9290F8;
 	font-size: 1.1rem;
 	margin-right: 4px;
-	padding: 0 2px 2px 2px;
+	padding: 0 2px 4px 2px;
 	border-radius: 4px;
+	line-height: 28px;
 }
 
 
-/*
-@media (720px) {
+@media only screen and (min-width: 540px) {
+	.div-shelf-support-top {
+		width: 87%;
+	}
+}
+
+@media only screen and (min-width: 755px) {
+	.footer {
+		max-width:755px;
+	}
+	.div-shelf-support-bottom {
+		width: 96%;
+		max-width: 750px;
+	}
 	
+	.description-section__app-title {
+		font-size: 3.2rem;
+	}
+	.description-section__app-title span {
+		font-size: 4.4rem;
+	}
+	
+	.description-partition {
+		width: 94%;
+		max-width: 600px;
+		margin-bottom: 50px;
+	}
+	
+	.div-wall-ornament-acute1 {
+		width: 34%;
+	}
+	.div-wall-ornament-acute2 {
+		width: 24%;
+	}
+	.div-wall-ornament-acute3 {
+		width: 14%;
+		margin-bottom: 45px;
+	}
+	
+	.form-partition {
+		margin-bottom: 0px;
+
+	}
+	
+	.book-partitions-container {
+		display: flex;
+		align-items: end;
+		max-width: 753px;
+		margin: auto;
+	}
 }
-*/
 
 
-/* TESTING COLOR */
-.color-test {
-	background: radial-gradient(#ac7732 5%, #d19341 1%,  #b1762a 1%, #874e03);
-	height: 100px;
+@media only screen and (min-width: 880px) {
+	.div-shelf-support-top {
+		width: 77%;
+		max-width: 1050px;
+	}
 }
+
+
 
 

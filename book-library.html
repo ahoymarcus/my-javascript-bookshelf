@@ -13,7 +13,7 @@
 		
 	<header class="header">
 		<span class="header__logo"><a href="#">myLIB</a></span>
-		<nav>
+		<nav class="header__nav">
 			<ul class="header__navbar">
 				<li><a href="#">About</a></li>
 				<li><a target="_blank" href="https://github.com/ahoymarcus">GitHub</a></li>
@@ -37,10 +37,10 @@
 		</section>
 		
 		
-		<a  class="book-stack-icon" target="_blank" href="https://icons8.com/icon/95123/book-stack">
+		<div  class="book-stack-icon" >
 			<img  src="./public/images/icons8-book-stack-64.png" alt="book stack icon" />
-			<span>icon by Icons8</span>
-		</a> 
+			<a target="_blank" href="https://icons8.com" >icons by Icons8</a>
+		</div> 
 
 		
 		<div class="div-wall-ornament-acute1" ></div>
@@ -56,91 +56,115 @@
 				numPages
 				bookState
 		-->
-		<section class="form-partition" >
-			<div class="shelves form-shelf" >
-				<h2>Add Book to the Library</h2>
+		<div class="book-partitions-container">
+			<section class="form-partition" >
+				<div class="shelves form-shelf" >		
+					<h4 class="form-shelf__desc" >Let's add some amazing new books!</h4>
+					
+						<label for="title">
+							<h4>BOOK TITLE</h4>
+							<input 
+								type="text"
+								id="title" 
+								name="title"
+							/>
+						</label>
 				
-				<label for="title">
-					Book title: 
-					<input 
-						type="text"
-						id="title" 
-						name="title"
-					/>
-				</label>
-				<label for="author">
-					Author's name:
-					<input 
-						type="text"
-						id="author" 
-						name="author"
-					/>
-				</label>
-				<label for="num-pages">
-					Number of pages:
-					<input 
-						type="number"
-						id="num-pages" 
-						name="num-pages"
-					/>
-				</label>
-				<label for="is-read">
-					<input 
-						type="checkbox"
-						id="is-read" 
-						name="is-read"
-					/>
-					Has it been read already?
-				</label>
-				
-				<button>Add Book</button>
-			</div>
-		</section>
-	
+						<label for="author">
+							<h4>AUTHOR'S NAME</h4>
+							<input 
+								type="text"
+								id="author" 
+								name="author"
+							/>
+						</label>
+								
+						<label for="num-pages">
+							Number of Pages
+							<input 
+								type="number"
+								id="num-pages" 
+								name="num-pages"
+							/>
+						</label>
+					
+						<label for="is-read">
+							<input 
+								type="checkbox"
+								id="is-read" 
+								name="is-read"
+							/>
+							Has it been read already?
+						</label>		
+					
+					<button id="add-book" class="form-btn" >Add Book</button>
+				</div>
+			</section>
 		
-		<section class="booklist-partition" >
-			<div class="shelves booklist-shelf" >
-				<ul>
-					<li class="book" >
-						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-						<div>
-							<h3>The Hobbit</h3>
-							<h4>J.R.R. Tolkien</h4>
-							<p>295 pages</p>
-							<p>not read yet</p>
-						</div>
-					</li>
-					<li class="book" >
-						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-						<div>
-							<h3>The Fellowshiop of the Ring</h3>
-							<h4>J.R.R. Tolkien</h4>
-							<p>395 pages</p>
-							<p>not read yet</p>
-						</div>
-					</li>
-					<li class="book" >
-						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-						<div>
-							<h3>The Two Towers</h3>
-							<h4>J.R.R. Tolkien</h4>
-							<p>395 pages</p>
-							<p>not read yet</p>
-						</div>
-					</li>
-					<li class="book" >
-						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-						<div>
-							<h3>The Return of the King</h3>
-							<h4>J.R.R. Tolkien</h4>
-							<p>395 pages</p>
-							<p>not read yet</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</section>
-	
+			
+			<section class="booklist-partition" >
+				<div class="shelves booklist-shelf" >
+					<ul>
+						<li class="book" >
+							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+							<div>
+								<h3>The Hobbit</h3>
+								<h5>J.R.R. Tolkien</h5>
+								<p>295 pages</p>
+								<p>
+									not read yet 
+									<span>
+										<input type="checkbox" id="is-read" name="is-read" />
+									</span>
+								</p>
+							</div>
+						</li>
+						<li class="book" >
+							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+							<div>
+								<h3>The Fellowshiop of the Ring</h3>
+								<h5>J.R.R. Tolkien</h5>
+								<p>395 pages</p>
+								<p>
+									not read yet 
+									<span>
+										<input type="checkbox" id="is-read" name="is-read" />
+									</span>
+								</p>
+							</div>
+						</li>
+						<li class="book" >
+							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+							<div>
+								<h3>The Two Towers</h3>
+								<h5>J.R.R. Tolkien</h5>
+								<p>395 pages</p>
+								<p>
+									not read yet 
+									<span>
+										<input type="checkbox" id="is-read" name="is-read" />
+									</span>
+								</p>
+							</div>
+						</li>
+						<li class="book" >
+							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+							<div>
+								<h3>The Return of the King</h3>
+								<h5>J.R.R. Tolkien</h5>
+								<p>395 pages</p>
+								<p>
+									not read yet 
+									<span>
+										<input type="checkbox" id="is-read" name="is-read" />
+									</span>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
 		
 		
 	

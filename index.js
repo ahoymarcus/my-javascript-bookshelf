@@ -1,6 +1,14 @@
 /*
 * 
 */
+const addBookBtn = document.getElementById('add-book');
+
+
+addBookBtn.addEventListener('click', () => {
+	alert('add book');
+});
+
+
 let myLibrary = [];
             
 function Book(title, author, numPages, bookState) {
