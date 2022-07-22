@@ -13,16 +13,15 @@ let nodePages = document.getElementById('num-pages');
 let nodeState = document.getElementById('is-read');
 const addBookBtn = document.getElementById('add-book');
 
-let bookState = 'not read yet';
 
 
 addBookBtn.addEventListener('click', () => {
 	let title = nodeTitle.value;
 	let author = nodeAuthor.value;
 	let numPages = nodePages.value;
-	let booksRead = nodeState.value;
+	let booksRead = nodeState.checked;
 	
-	console.log(numPages);
+	console.log('input checkbox value: ');
 	console.log(booksRead);
 	
 	addBookToLibrary(title, author, numPages, booksRead);
@@ -47,7 +46,7 @@ Book.prototype.info = function() {
 
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet');
-const theFellowship = new Book('The Fellowshiop of the Ring', 'J.R.R. Tolkien', 395, 'not read yet');
+const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 395, 'not read yet');
 const theTwoTowers = new Book('The Two Towers', 'J.R.R. Tolkien', 395, 'not read yet');
 const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 395, 'not read yet');
 
@@ -92,7 +91,14 @@ function showBooklist(list) {
 		const para1 = createDOMNode('p', book.numPages, '');
 		const para2 = createDOMNode('p', book.bookState, '');
 		const span = createDOMNode('span');
-		const input = createDOMNode('input', '', '', 'is-read', [{ prop: 'type', value: 'checkbox'}, { prop: 'name', value: 'is-read'}]);
+		
+		
+		let input;
+		if (book.bookState === 'already read') {
+			input = createDOMNode('input', '', '', 'is-read', [{ prop: 'type', value: 'checkbox'}, { prop: 'name', value: 'is-read'}, { prop: 'checked', value: true}]);
+		} else {
+			input = createDOMNode('input', '', '', 'is-read', [{ prop: 'type', value: 'checkbox'}, { prop: 'name', value: 'is-read'}]);
+		}
 		
 		li.appendChild(img);
 		
@@ -105,6 +111,11 @@ function showBooklist(list) {
 		div.appendChild(para2);
 		
 		li.appendChild(div);
+		
+		
+		const removeBtn = createDOMNode('button', 'X', 'book-btn', 'remove-btn');
+		li.appendChild(removeBtn);
+		
 		
 		ulNode.appendChild(li);
 		
@@ -128,10 +139,10 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 			numPages = 0;
 		}
 		
-		if (!booksRead) {
-			booksRead = bookState; //'not read yet';
+		if (booksRead) {
+			booksRead = 'already read';
 		} else {
-			booksRead = 'book read';
+			booksRead = 'not read yet';
 		}
 		
 		const book = new Book(title, author, numPages, booksRead);
