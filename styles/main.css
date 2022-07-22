@@ -200,7 +200,7 @@ h5 {
 .booklist-partition {
 	width: 96%;
 	max-width: 420px; /*420 + 331 */
-	max-height: 455px;
+	max-height: 490px;
 	overflow: auto;
 	margin-bottom: 0.5px;
 }

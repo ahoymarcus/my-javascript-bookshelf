@@ -4,7 +4,7 @@
 const uiNodeMsg = document.getElementById('form-validate');
 const thirdWallOrnament = document.getElementById('third-ornament');
 
-const booklistNode = document.getElementById('booklist');
+const ulNode = document.getElementById('booklist');
 const nodeTitle = document.getElementById('title');
 const nodeAuthor = document.getElementById('author');
 let nodePages = 0;
@@ -67,8 +67,8 @@ showBooklist(myLibrary);
 			not read yet 
 			<span>
 				<input 
-					type="checkbox" 
-					id="is-read" 
+					id="is-read"
+					type="checkbox"  
 					name="is-read" 
 				/>
 			</span>
@@ -76,17 +76,18 @@ showBooklist(myLibrary);
 	</div>
 </li>
 */
+//createDOMNode(node = 'p', htmlText, cssClass, cssId, cssProps)
 function showBooklist(list) {
 	let newNode = list.map((book) => {
 		const li = createDOMNode('li', '', 'book');
-		const img = createDOMNode('img', '', 'div-color');
+		const img = createDOMNode('img', '', 'div-color', '', [{ prop: 'src', value: './public/images/icons8-book-64.png'}, { prop: 'alt', value: 'books icon'}]);
 		const div = createDOMNode('div');
 		const h3 = createDOMNode('h3', book.title, '');
 		const h5 = createDOMNode('h5', book.author, '');
 		const para1 = createDOMNode('p', book.numPages, '');
 		const para2 = createDOMNode('p', book.bookState, '');
 		const span = createDOMNode('span');
-		const input = createDOMNode('input');
+		const input = createDOMNode('input', '', '', 'is-read', [{ prop: 'type', value: 'checkbox'}, { prop: 'name', value: 'is-read'}]);
 		
 		li.appendChild(img);
 		
@@ -100,15 +101,12 @@ function showBooklist(list) {
 		
 		li.appendChild(div);
 		
+		ulNode.appendChild(li);
+		
 		return li;
 	});
-	
-	
-	
-	
-	console.log(newNode);
-	
-	//booklistNode
+
+	//console.log(newNode);
 }
 
 
@@ -142,17 +140,30 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 }
 
 /* AUXILIARY FUNCTIONS */
-function createDOMNode(node = 'p', msg, cssClass) {
-	const newNode = document.createElement(node);
+//createDOMNode(node = 'p', htmlText, cssClass, cssId, ...cssProps)
+function createDOMNode(node = 'p', htmlText, cssClass, cssId, cssProps) {
+	let newNode = document.createElement(node);
 	
-	if (msg) {
-		const textNode = document.createTextNode(msg);
+	if (htmlText) {
+		const textNode = document.createTextNode(htmlText);
 		
 		newNode.appendChild(textNode);
 	}
 	
 	if (cssClass) {
 		newNode.classList.add(cssClass);
+	}
+	
+	if (cssId) {
+		newNode.id = cssId;
+	}
+	
+	//console.log(cssProps);
+	//console.log(Array.isArray(cssProps));
+	if (Array.isArray(cssProps)) {
+		for (let i = 0; i < cssProps.length; i += 1) {
+			newNode[cssProps[i].prop] = cssProps[i].value;
+		}
 	}
 	
 	return newNode;
