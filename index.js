@@ -1,14 +1,16 @@
 /*
 * 
 */
+let myLibrary = [];
+
 const uiNodeMsg = document.getElementById('form-validate');
 const thirdWallOrnament = document.getElementById('third-ornament');
 
 const ulNode = document.getElementById('booklist');
 const nodeTitle = document.getElementById('title');
 const nodeAuthor = document.getElementById('author');
-let nodePages = 0;
-let nodeState = false;
+let nodePages = document.getElementById('num-pages');
+let nodeState = document.getElementById('is-read');
 const addBookBtn = document.getElementById('add-book');
 
 let bookState = 'not read yet';
@@ -24,10 +26,11 @@ addBookBtn.addEventListener('click', () => {
 	console.log(booksRead);
 	
 	addBookToLibrary(title, author, numPages, booksRead);
+	showBooklist(myLibrary);
 });
 
 
-let myLibrary = [];
+
             
 function Book(title, author, numPages, bookState) {
 	this.title = title;
@@ -78,6 +81,8 @@ showBooklist(myLibrary);
 */
 //createDOMNode(node = 'p', htmlText, cssClass, cssId, cssProps)
 function showBooklist(list) {
+	ulNode.innerHTML = null;
+	
 	let newNode = list.map((book) => {
 		const li = createDOMNode('li', '', 'book');
 		const img = createDOMNode('img', '', 'div-color', '', [{ prop: 'src', value: './public/images/icons8-book-64.png'}, { prop: 'alt', value: 'books icon'}]);
@@ -125,6 +130,8 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 		
 		if (!booksRead) {
 			booksRead = bookState; //'not read yet';
+		} else {
+			booksRead = 'book read';
 		}
 		
 		const book = new Book(title, author, numPages, booksRead);
