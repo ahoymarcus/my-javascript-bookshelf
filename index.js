@@ -29,7 +29,7 @@ const ulNode = document.getElementById('booklist');
 const nodeTitle = document.getElementById('title');
 const nodeAuthor = document.getElementById('author');
 let nodePages = document.getElementById('num-pages');
-let nodeState = document.getElementById('is-read');
+let nodeState = document.getElementById('is-read-onform');
 const addBookBtn = document.getElementById('add-book');
 
 
@@ -44,7 +44,7 @@ addBookBtn.addEventListener('click', () => {
 	let numPages = nodePages.value;
 	let booksRead = nodeState.checked;
 	
-	console.log('input checkbox value: ');
+	console.log('input checked value: ');
 	console.log(booksRead);
 	
 	addBookToLibrary(title, author, numPages, booksRead);
@@ -58,10 +58,13 @@ const removeBtns = document.querySelectorAll('.remove-btn');
 
 checkboxes.forEach(box => {
 	box.addEventListener('click', e => {
-		console.log(e.target);
+		console.dir(e.target);
 		
-		
-		//changeBookReadStatus
+		if (e.target.checked === false) {
+			e.target.previousSibling.textContent = 'not read yet';
+		} else {
+			e.target.previousSibling.textContent = 'already read';
+		}
 	});
 });
 
@@ -108,15 +111,15 @@ function showBooklist(list) {
 		
 		let input;
 		if (book.bookState === 'already read') {
-			input = createDOMNode('input', '', 'book-read', 'is-read', [{ prop: 'type', value: 'checkbox' }, { prop: 'name', value: 'is-read' }, { prop: 'checked', value: true}]);
+			input = createDOMNode('input', '', 'book-read', 'is-read-onshelf', [{ prop: 'type', value: 'checkbox' }, { prop: 'name', value: 'is-read' }, { prop: 'checked', value: true}]);
 		} else {
-			input = createDOMNode('input', '', 'book-read', 'is-read', [{ prop: 'type', value: 'checkbox' }, { prop: 'name', value: 'is-read' }]);
+			input = createDOMNode('input', '', 'book-read', 'is-read-onshelf', [{ prop: 'type', value: 'checkbox' }, { prop: 'name', value: 'is-read' }]);
 		}
 		
 		const removeBtn = createDOMNode('button', 'X', 'remove-btn', '');
 		
 		// Set For attribute to label 
-		label.htmlFor = 'is-read';
+		label.htmlFor = 'is-read-onshelf';
 		
 		// Set global data attribute
 		removeBtn.setAttribute('data-id', idx);
@@ -156,6 +159,8 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 			numPages = 0;
 		}
 		
+		console.log('input checked value: ');
+		console.log(booksRead);
 		if (booksRead) {
 			booksRead = 'already read';
 		} else {
