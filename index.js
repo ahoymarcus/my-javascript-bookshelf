@@ -55,6 +55,17 @@ myLibrary.push(theHobbit, theFellowship, theTwoTowers, theReturnOfTheKing);
 
 showBooklist(myLibrary);
 
+const removeBtns = document.querySelectorAll('.remove-btn');
+console.log(removeBtns);
+removeBtns.forEach(btn => {
+	btn.addEventListener('click', (e) => {
+		console.dir(e.target);
+		console.log(e.target.getAttribute('data-id'));
+		
+		
+		
+	});
+});
 
 
 
@@ -82,7 +93,7 @@ showBooklist(myLibrary);
 function showBooklist(list) {
 	ulNode.innerHTML = null;
 	
-	let newNode = list.map((book) => {
+	let newNode = list.map((book, idx) => {
 		const li = createDOMNode('li', '', 'book');
 		const img = createDOMNode('img', '', 'div-color', '', [{ prop: 'src', value: './public/images/icons8-book-64.png'}, { prop: 'alt', value: 'books icon'}]);
 		const div = createDOMNode('div');
@@ -112,10 +123,10 @@ function showBooklist(list) {
 		
 		li.appendChild(div);
 		
-		
-		const removeBtn = createDOMNode('button', 'X', 'book-btn', 'remove-btn');
+		//const removeBtn = createDOMNode('button', 'X', 'remove-btn', '', [{ prop: 'data-id', value: idx }]);
+		const removeBtn = createDOMNode('button', 'X', 'remove-btn', '');
+		removeBtn.setAttribute('data-id', idx);
 		li.appendChild(removeBtn);
-		
 		
 		ulNode.appendChild(li);
 		
