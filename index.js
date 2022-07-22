@@ -29,7 +29,7 @@ const ulNode = document.getElementById('booklist');
 const nodeTitle = document.getElementById('title');
 const nodeAuthor = document.getElementById('author');
 let nodePages = document.getElementById('num-pages');
-let nodeState = document.getElementById('is-read-onform');
+let nodeBookNote = document.getElementById('is-read');
 const addBookBtn = document.getElementById('add-book');
 
 
@@ -42,31 +42,24 @@ addBookBtn.addEventListener('click', () => {
 	let title = nodeTitle.value;
 	let author = nodeAuthor.value;
 	let numPages = nodePages.value;
-	let booksRead = nodeState.checked;
+	let booksRead = nodeBookNote.checked;
 	
 	console.log('input checked value: ');
 	console.log(booksRead);
 	
 	addBookToLibrary(title, author, numPages, booksRead);
+	
+	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
+	
 	showBooklist(myLibrary);
 });
 
 
-const checkboxes = document.querySelectorAll('.book-read');
+const bookNotes = document.querySelectorAll('.book-note');
 const removeBtns = document.querySelectorAll('.remove-btn');
 
 
-checkboxes.forEach(box => {
-	box.addEventListener('click', e => {
-		console.dir(e.target);
-		
-		if (e.target.checked === false) {
-			e.target.previousSibling.textContent = 'not read yet';
-		} else {
-			e.target.previousSibling.textContent = 'already read';
-		}
-	});
-});
+
 
   
 removeBtns.forEach(btn => {
@@ -91,10 +84,6 @@ removeBtns.forEach(btn => {
 
 
 
-/*
-* createDOMNode(node = 'p', htmlText, cssClass, cssId, [cssProps])
-*
-*/
 function showBooklist(list) {
 	ulNode.innerHTML = null;
 	
@@ -106,32 +95,25 @@ function showBooklist(list) {
 		const h3 = createDOMNode('h3', book.title);
 		const h5 = createDOMNode('h5', book.author);
 		const para1 = createDOMNode('p', `${book.numPages} pages`);
-		const para2 = createDOMNode('p');
-		const label = createDOMNode('label', book.bookState);
 		
-		let input;
+		let span;
 		if (book.bookState === 'already read') {
-			input = createDOMNode('input', '', 'book-read', 'is-read-onshelf', [{ prop: 'type', value: 'checkbox' }, { prop: 'name', value: 'is-read' }, { prop: 'checked', value: true}]);
+			span = createDOMNode('spam', book.bookState, 'book-read', 'book-note');	
 		} else {
-			input = createDOMNode('input', '', 'book-read', 'is-read-onshelf', [{ prop: 'type', value: 'checkbox' }, { prop: 'name', value: 'is-read' }]);
+			span = createDOMNode('spam', book.bookState, 'book-not-read', 'book-note');
 		}
 		
-		const removeBtn = createDOMNode('button', 'X', 'remove-btn', '');
 		
-		// Set For attribute to label 
-		label.htmlFor = 'is-read-onshelf';
+		const removeBtn = createDOMNode('button', 'X', 'remove-btn', '');
 		
 		// Set global data attribute
 		removeBtn.setAttribute('data-id', idx);
 		
-		// Assemble the component
-		label.appendChild(input);
-		para2.appendChild(label);
-			
+		// Assemble the component		
 		div.appendChild(h3);
 		div.appendChild(h5);
 		div.appendChild(para1);
-		div.appendChild(para2);
+		div.appendChild(span);
 			
 		li.appendChild(img);
 		li.appendChild(div);
@@ -146,13 +128,6 @@ function showBooklist(list) {
 }
 
 
-
-
-
-
-/*
-* https://www.tabnine.com/academy/javascript/get-value-of-input/
-*/
 function addBookToLibrary(title, author, numPages, booksRead) {
   if (title && author) {
 		if (!numPages) {
@@ -181,6 +156,13 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 
 
 /* AUXILIARY FUNCTIONS */
+function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
+	nodeTitle.value = '';
+	nodeAuthor.value = '';
+	nodePages.value = '';
+	nodeBookNote.checked = false;
+}
+
 function createDOMNode(node = 'p', htmlText, cssClass, cssId, cssProps) {
 	let newNode = document.createElement(node);
 	

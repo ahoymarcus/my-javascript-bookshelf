@@ -76,21 +76,6 @@ button {
 	cursor: pointer;
 }
 
-
-/*
-	light-brown: #d2a67e;
-	brown: #D28238;
-	lighter-gray: #D9D9D9;
-	light-gray: #CCCACA;
-	light-green: #D4FABE;
-	lighter-red: #EDAEAE;
-	light-red: #E99797;
-	violet: #9290F8;
-	yellow: #F6D493;
-	border: background: radial-gradient(#ac7732 5%, #d19341 1%,  #b1762a 1%, #874e03);
-	and book-images.......
-	<a target="_blank" href="https://icons8.com/icon/119436/book">Book</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-*/
 h1 {
 	font-size: 2rem;
 }
@@ -98,7 +83,7 @@ h2 {
 	font-size: 1.7rem;
 }
 h3 {
-	font-size: 1.4rem;
+	font-size: 1.3rem;
 }
 h4 {
 	font-size: 1.2rem;
@@ -369,13 +354,28 @@ h5 {
 
 .book h5 {
 	color: #b9afaf;
-	margin-bottom: 6px;
+	margin-bottom: 1px;
 }
 
 .book p {
 	color: #8f8c8c; /*#9290F8;*/
 	font-size: 0.9rem;
+	margin-bottom: 5px;
 }
+
+.book-not-read {
+	color: #eb9e9e; /*#8f8c8c;*/
+	background-color: #87444469;
+	border-radius: 6px;
+	padding: 1px 5px;
+}
+.book-read {
+	color: #443939;
+	background-color: #d4fabea6; /*#D4FABE;*/
+	border-radius: 6px;
+	padding: 1px 5px;
+}
+
 
 .remove-btn {
 	color: #b9afaf;
@@ -383,6 +383,7 @@ h5 {
 	border: 1px solid #b9afaf;
 	border-radius: 4px;
 }
+
 
 
 .footer {

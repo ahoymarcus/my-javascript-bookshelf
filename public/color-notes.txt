@@ -1,0 +1,14 @@
+/*
+	light-brown: #d2a67e;
+	brown: #D28238;
+	lighter-gray: #D9D9D9;
+	light-gray: #CCCACA;
+	light-green: #D4FABE;
+	lighter-red: #EDAEAE;
+	light-red: #E99797;
+	violet: #9290F8;
+	yellow: #F6D493;
+	border: background: radial-gradient(#ac7732 5%, #d19341 1%,  #b1762a 1%, #874e03);
+	and book-images.......
+	<a target="_blank" href="https://icons8.com/icon/119436/book">Book</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+*/
