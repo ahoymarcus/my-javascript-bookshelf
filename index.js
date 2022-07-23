@@ -35,7 +35,7 @@ checkLibrary();
 
 
 aboutSection.addEventListener('click', () => {
-	let msg = 'Welcome, to this Library and fell free share your books! :-)';
+	let msg = 'Welcome, to this Library and fell free share your books here!';
 	
 	printMsg('h3', msg, 'message-board-text');
 });

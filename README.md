@@ -8,7 +8,7 @@ This project aims to model a personal library using JavaScript and the Object Or
 <br />
 
 
-- [my online webpage]()
+- [my online webapp](https://my-javascript-bookshelf.netlify.app/)
 
 
 <br />
@@ -16,10 +16,11 @@ This project aims to model a personal library using JavaScript and the Object Or
 Dependências:
 
 - HTML
-- HTML Forms Validation
 - CSS
 - CSS Patterns
 - JavaScript
+- JavaScript OOP
+- JavaScript Forms Validation
 - UML (StarUML)
 - Wireframe (Figma)
 - Layout (Figma)
@@ -69,9 +70,9 @@ Dependências:
 
 
 
-### Imagem da tela:
+### Imagem da tela inicial do app JavaScript Bookshelf em dispositivo grande:
 
-![Imagem da tela do jogo com novo valor de grid](/public/images/)
+![Imagem da tela inicial do app JavaScript Bookshelf em dispositivo grande](/public/myjavascript-bookshelf-01.png)
 
 
 <br />
