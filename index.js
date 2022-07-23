@@ -22,20 +22,16 @@ const theTwoTowers = new Book('The Two Towers', 'J.R.R. Tolkien', 395, 'not read
 const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 395, 'not read yet');
 
 
+// UI nodes
 const uiNodeMsg = document.getElementById('form-validate');
 const thirdWallOrnament = document.getElementById('third-ornament');
 const aboutSection = document.getElementById('about-section');
-
-const ulNode = document.getElementById('booklist');
-const nodeTitle = document.getElementById('title');
-const nodeAuthor = document.getElementById('author');
-let nodePages = document.getElementById('num-pages');
-let nodeBookNote = document.getElementById('is-read');
+const bookShelf = document.getElementById('booklist');
 const addBookBtn = document.getElementById('add-book');
-
-
 myLibrary.push(theHobbit, theFellowship, theTwoTowers, theReturnOfTheKing);
-showBooklist(myLibrary);
+
+checkLibrary();
+
 
 
 aboutSection.addEventListener('click', () => {
@@ -46,58 +42,65 @@ aboutSection.addEventListener('click', () => {
 
 
 addBookBtn.addEventListener('click', () => {
-	let title = nodeTitle.value;
-	let author = nodeAuthor.value;
-	let numPages = nodePages.value;
-	let booksRead = nodeBookNote.checked;
+	// Form nodes
+	const nodeTitle = document.getElementById('title');
+	const nodeAuthor = document.getElementById('author');
+	const nodePages = document.getElementById('num-pages');
+	const nodeBookNote = document.getElementById('is-read');
 	
-	console.log('input checked value: ');
-	console.log(booksRead);
+	console.log('input checked value: ', nodeBookNote.checked);
 	
-	addBookToLibrary(title, author, numPages, booksRead);
+	addBookToLibrary(nodeTitle.value, nodeAuthor.value, nodePages.value, nodeBookNote.checked);
 	
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 	
 	showBooklist(myLibrary);
+	changeBookNotes();
+	removeBooks();
 });
 
 
-const bookNotes = document.querySelectorAll('#book-note');
-const removeBtns = document.querySelectorAll('.remove-btn');
 
-
-bookNotes.forEach(note => {
-	note.addEventListener('click', e => {
-		console.dir(e.target);
-		let noteId = Number(e.target.getAttribute('data-id'));
-		console.log(noteId);
-		
-		if (e.target.textContent === 'already read') {
-			checkBookNote(e.target, noteId, 'not read yet', 'book-read', 'book-not-read');
-		} else {
-			checkBookNote(e.target, noteId, 'already read', 'book-not-read', 'book-read');
-		}
-		
-		showBooklist(myLibrary);
+function changeBookNotes() {
+	const bookNotes = document.querySelectorAll('#book-note');
+	
+	bookNotes.forEach(note => {
+		note.addEventListener('click', e => {
+			console.dir(e.target);
+			let noteId = Number(e.target.getAttribute('data-id'));
+			console.log(noteId);
+			
+			if (e.target.textContent === 'already read') {
+				checkBookNote(e.target, noteId, 'not read yet', 'book-read', 'book-not-read');
+			} else {
+				checkBookNote(e.target, noteId, 'already read', 'book-not-read', 'book-read');
+			}
+		});
 	});
-});
+}
 
-  
-removeBtns.forEach(btn => {
-	btn.addEventListener('click', e => {
-		console.log(e.target.getAttribute('data-id'));
-		let btnIndex = Number(e.target.getAttribute('data-id'));
-		
-		removeBookfromLibrary(btnIndex);
-		
-		showBooklist(myLibrary);
-	});
-});
 
+function removeBooks() {
+	const removeBtns = document.querySelectorAll('.remove-btn');
+	
+	removeBtns.forEach(btn => {
+		btn.addEventListener('click', e => {
+			console.log(e.target.getAttribute('data-id'));
+			let btnIndex = Number(e.target.getAttribute('data-id'));
+			
+			removeBookfromLibrary(btnIndex);
+			
+			showBooklist(myLibrary);
+			changeBookNotes();
+			removeBooks();
+			checkLibrary();
+		});
+	});	
+}  
 
 
 function showBooklist(list) {
-	ulNode.innerHTML = null;
+	bookShelf.innerHTML = null;
 	
 	let newNode = list.map((book, idx) => {
 		// Create elements and its properties
@@ -132,12 +135,10 @@ function showBooklist(list) {
 		li.appendChild(div);
 		li.appendChild(removeBtn);
 		
-		ulNode.appendChild(li);
+		bookShelf.appendChild(li);
 		
 		return li;
 	});
-
-	//console.log(newNode);
 }
 
 
@@ -147,8 +148,7 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 			numPages = 0;
 		}
 		
-		console.log('input checked value: ');
-		console.log(booksRead);
+		console.log('input checked value: ', booksRead);
 		if (booksRead) {
 			booksRead = 'already read';
 		} else {
@@ -188,8 +188,24 @@ function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
 		}
 	});
 	
+	node.textContent = note;
 	node.classList.remove(cssToRemove);
 	node.classList.add(cssToAdd);
+}
+
+function checkLibrary() {
+	if (myLibrary.length > 0) {
+		showBooklist(myLibrary);
+		changeBookNotes();
+		removeBooks();
+	} else {
+		const sideB = new Book('Your Book', 'This is also yours! :-)', 'All taht you need: ', 'not read yet');
+		myLibrary.push(sideB);
+		
+		showBooklist(myLibrary);
+		changeBookNotes();
+		removeBooks();
+	}
 }
 
 
@@ -249,6 +265,9 @@ function printMsg(node, msg = 'Welcome, fell free to post your books here! :-)',
 	}
 	, 5000);
 }
+
+
+
 
 
 
