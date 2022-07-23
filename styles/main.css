@@ -272,8 +272,16 @@ h5 {
 	bottom: 25px;	
 	display: none;
 }
-.form-validation p {
+
+.form-validation-text {
 	color: #efb1b1;
+	font-weight: bold;
+	margin-top: 5px;
+	line-height: 30px;
+}
+
+.message-board-text {
+	color: #492727; /*#efb1b1;*/
 	font-weight: bold;
 	margin-top: 5px;
 	line-height: 30px;
