@@ -23,21 +23,22 @@ const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 
 
 
 // UI nodes
-const uiNodeMsg = document.getElementById('form-validate');
+const messageBoard = document.getElementById('hidden-message-board');
 const thirdWallOrnament = document.getElementById('third-ornament');
 const aboutSection = document.getElementById('about-section');
 const bookShelf = document.getElementById('booklist');
 const addBookBtn = document.getElementById('add-book');
-myLibrary.push(theHobbit, theFellowship, theTwoTowers, theReturnOfTheKing);
 
+myLibrary.push(theHobbit, theFellowship, theTwoTowers, theReturnOfTheKing);
 checkLibrary();
 
 
 
 aboutSection.addEventListener('click', () => {
+	console.log('test about sec');
 	let msg = 'Welcome, to this Library and fell free share your books here!';
 	
-	printMsg('h3', msg, 'message-board-text');
+	printMsg('h3', msg, 'message-board-msg');
 });
 
 
@@ -71,9 +72,9 @@ function changeBookNotes() {
 			console.log(noteId);
 			
 			if (e.target.textContent === 'already read') {
-				checkBookNote(e.target, noteId, 'not read yet', 'book-read', 'book-not-read');
+				checkBookNote(e.target, noteId, 'not read yet', 'booklist-partition__book-read', 'booklist-partition__book-not-read');
 			} else {
-				checkBookNote(e.target, noteId, 'already read', 'book-not-read', 'book-read');
+				checkBookNote(e.target, noteId, 'already read', 'booklist-partition__book-not-read', 'booklist-partition__book-read');
 			}
 		});
 	});
@@ -81,7 +82,7 @@ function changeBookNotes() {
 
 
 function removeBooks() {
-	const removeBtns = document.querySelectorAll('.remove-btn');
+	const removeBtns = document.querySelectorAll('.booklist-partition__remove-btn');
 	
 	removeBtns.forEach(btn => {
 		btn.addEventListener('click', e => {
@@ -104,22 +105,22 @@ function showBooklist(list) {
 	
 	let newNode = list.map((book, idx) => {
 		// Create elements and its properties
-		const li = createDOMNode('li', '', 'book');	
-		const img = createDOMNode('img', '', 'div-color', '', [{ prop: 'src', value: './public/images/icons8-book-64.png' }, { prop: 'alt', value: 'books icon' }]);
-		const div = createDOMNode('div');
-		const h3 = createDOMNode('h3', book.title);
-		const h5 = createDOMNode('h5', book.author);
-		const para1 = createDOMNode('p', `${book.numPages} pages`);
+		const li = createDOMNode('li', '', 'booklist-partition__book');	
+		const img = createDOMNode('img', '', 'booklist-partition__icon', '', [{ prop: 'src', value: './public/images/icons8-book-64.png' }, { prop: 'alt', value: 'books icon' }]);
+		const div = createDOMNode('div', '', 'booklist-partition__book-content');
+		const h3 = createDOMNode('h3', book.title, 'booklist-partition__title' );
+		const h5 = createDOMNode('h5', book.author, 'booklist-partition__author');
+		const para1 = createDOMNode('p', `${book.numPages} pages`, 'booklist-partition__pages');
 		
 		let span;
 		if (book.bookState === 'already read') {
-			span = createDOMNode('span', book.bookState, 'book-read', 'book-note');	
+			span = createDOMNode('span', book.bookState, 'booklist-partition__book-read', 'book-note');	
 		} else {
-			span = createDOMNode('spam', book.bookState, 'book-not-read', 'book-note');
+			span = createDOMNode('spam', book.bookState, 'booklist-partition__book-not-read', 'book-note');
 		}
 		
 		
-		const removeBtn = createDOMNode('button', 'X', 'remove-btn', '');
+		const removeBtn = createDOMNode('button', 'X', 'booklist-partition__remove-btn', '');
 		
 		// Set global data attribute
 		removeBtn.setAttribute('data-id', idx);
@@ -165,7 +166,7 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 		
 		let msg = 'Please, fill all the required fields: TITLE and AUTHOR';
 		
-		printMsg('h4', msg, 'form-validation-text');
+		printMsg('h4', msg, 'message-board-validation');
 	}  
 }
 
@@ -252,16 +253,16 @@ function printMsg(node, msg = 'Welcome, fell free to post your books here! :-)',
 	node, message, cssClass);
 	
 	thirdWallOrnament.style.marginBottom = '40px';
-	uiNodeMsg.style.display = 'block';
+	messageBoard.style.display = 'block';
 	
 	console.log(thirdWallOrnament);
 	
 	
-	uiNodeMsg.appendChild(newUINode);
+	messageBoard.appendChild(newUINode);
 	
 	const msgTimeout = setTimeout(() => {
-		uiNodeMsg.style.display = 'none'
-		uiNodeMsg.innerHTML = null;
+		messageBoard.style.display = 'none'
+		messageBoard.innerHTML = null;
 	}
 	, 5000);
 }

@@ -12,179 +12,132 @@
 <body>
 		
 	<header class="header">
-		<span class="header__logo"><a href="#">myLIB</a></span>
+		<span class="header__logo"><a href="#">LOGO</a></span>
 		<nav class="header__nav">
 			<ul class="header__navbar">
-				<li id="about-section"><a href="#msg-board">About</a></li>
+				<li id="about-section"><a target="_blank" href="https://www.linkedin.com/in/marcus-vinicius-richa-183104199/">Linkedin</a></li>
 				<li><a target="_blank" href="https://github.com/ahoymarcus">GitHub</a></li>
 				<li><a target="_blank" href="https://nextjs-myjs-tech-blog.vercel.app/">JSBlog</a></li>
 				<li><a target="_blank" href="https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/">Portfolio</a></li>
 			</ul>
-		</nav>
-		
+		</nav>	
 	</header>
+	
+	
 	<div class="div-shelf-support-top"></div>
 	
 	<div class="div-wall-ornament" ></div>
+	
 	
 	<main>
 	
 		<section class="description-partition" >
 			<div class="shelves description-shelf" >
 				<h1 class="description-section__app-title">JavaScript <span>Bookshelf</span></h1>
-				<div class="inner-shelf-ornament" ></div>
+				<div class="description-section__ornament" ></div>
 			</div>
 		</section>
+
+
+		<div class="about-section">
+			<img id="about-section" src="./public/images/icons8-flag-96.png" alt="about section flag icon" />
+			<a  href="#msg-board" >About Section</a>
+		</div>
+			
 		
-		
-		<div  class="book-stack-icon" >
-			<img  src="./public/images/icons8-book-stack-64.png" alt="book stack icon" />
-			<a target="_blank" href="https://icons8.com" >icons by Icons8</a>
+		<div  class="book-stack" >
+			<div class="book-stack__icon">
+				<img src="./public/images/icons8-book-stack-64.png" alt="book stack icon" />
+				<a target="_blank" href="https://icons8.com" >icons by Icons8</a>
+			</div>
+			
+			<div class="book-stack__ornament1" ></div>
+			<div class="book-stack__ornament2" ></div>
+			<div id="third-ornament" class="book-stack__ornament3" ></div>
 		</div> 
 
 		
-		<div class="div-wall-ornament-acute1" ></div>
-		<div class="div-wall-ornament-acute2" ></div>
-		<div id="third-ornament" class="div-wall-ornament-acute3" ></div>
+		
+		<div id="hidden-message-board" class="message-board"></div>
 		
 		
-		
-		<!--
-				'The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet'
-				title
-				author
-				numPages
-				bookState
-		-->
-		<div id="form-validate" class="form-validation"></div>
-		<div class="book-partitions-container">
-			<section class="form-partition" >
-				<div class="shelves form-shelf" >		
-					<h4 class="form-shelf__desc" >Let's add some amazing new books!</h4>
-					
-						<label for="title">
-							<h4>BOOK TITLE <span class="required-field">*...</span></h4>
-							<input 
-								type="text"
-								id="title" 
-								name="title"
-							/>
-						</label>
+		<section class="form-partition" >
+			<div class="shelves form-partition__shelf" >		
+				<h4 class="form-partition__desc" >Let's add some amazing new books!</h4>
 				
-						<label for="author">
-							<h4>AUTHOR'S NAME <span class="required-field">*...</span></h4>
-							<input 
-								type="text"
-								id="author" 
-								name="author"
-							/>
-						</label>
-								
-						<label for="num-pages">
-							Number of Pages
-							<input 
-								type="number"
-								id="num-pages" 
-								name="num-pages"
-							/>
-						</label>
-					
-						<label for="is-read-onform">
-							<input 
-								type="checkbox"
-								id="is-read" 
-								name="is-read"
-							/>
-							Has it been read already?
-						</label>		
-					
-					<button id="add-book" class="form-btn" >Add Book</button>
-				</div>
-			</section>
-		
+					<label for="title">
+						<h4>BOOK TITLE <span class="form-partition__required-field">*...</span></h4>
+						<input 
+							type="text"
+							id="title" 
+							name="title"
+						/>
+					</label>
 			
-			<section class="booklist-partition" >
-				<div class="shelves booklist-shelf" >
-					<ul id="booklist" >
-						
-						<!--	
-						<li class="book" >
-							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-							<div>
-								<h3>The Hobbit</h3>
-								<h5>J.R.R. Tolkien</h5>
-								<p>295 pages</p>
-								<p>
-									not read yet 
-									<span>
-										<input type="checkbox" id="is-read" name="is-read" />
-									</span>
-								</p>
-							</div>
-						</li>
-						<li class="book" >
-							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-							<div>
-								<h3>The Fellowshiop of the Ring</h3>
-								<h5>J.R.R. Tolkien</h5>
-								<p>395 pages</p>
-								<p>
-									not read yet 
-									<span>
-										<input type="checkbox" id="is-read" name="is-read" />
-									</span>
-								</p>
-							</div>
-						</li>
-						<li class="book" >
-							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-							<div>
-								<h3>The Two Towers</h3>
-								<h5>J.R.R. Tolkien</h5>
-								<p>395 pages</p>
-								<p>
-									not read yet 
-									<span>
-										<input type="checkbox" id="is-read" name="is-read" />
-									</span>
-								</p>
-							</div>
-						</li>
-						<li class="book" >
-							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-							<div>
-								<h3>The Return of the King</h3>
-								<h5>J.R.R. Tolkien</h5>
-								<p>395 pages</p>
-								<p>
-									not read yet 
-									<span>
-										<input type="checkbox" id="is-read" name="is-read" />
-									</span>
-								</p>
-							</div>
-						</li>
-						
-						-->
-						
-					</ul>
-				</div>
-			</section>
-		</div>
-		
-		
+					<label for="author">
+						<h4>AUTHOR'S NAME <span class="form-partition__required-field">*...</span></h4>
+						<input 
+							type="text"
+							id="author" 
+							name="author"
+						/>
+					</label>
+							
+					<label for="num-pages">
+						Number of Pages
+						<input 
+							type="number"
+							id="num-pages" 
+							name="num-pages"
+						/>
+					</label>
+				
+					<label for="is-read-onform">
+						<input 
+							type="checkbox"
+							id="is-read" 
+							name="is-read"
+						/>
+						Has it been read already?
+					</label>		
+				
+				<button id="add-book" class="form-partition__btn" >Add Book</button>
+			</div>
+		</section>
 	
+		
+		<section class="booklist-partition" >
+			<div class="shelves booklist-partition__shelf" >
+				<ul id="booklist" >
+					<!--	
+					<li class="book" >
+						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+						<div>
+							<h3>The Hobbit</h3>
+							<h5>J.R.R. Tolkien</h5>
+							<p>295 pages</p>
+							<p>
+								not read yet 
+								<span>
+									<input type="checkbox" id="is-read" name="is-read" />
+								</span>
+							</p>
+						</div>
+					</li>
+					-->
+				</ul>
+			</div>
+		</section>
 	
 	</main>
 	
-
-	
-
 	
 	<div class="div-shelf-support-bottom"></div>
+	
+	
 	<footer class="footer">
-		<span class="footer__link"><a target="_blank" href="https://www.linkedin.com/in/marcus-vinicius-richa-183104199/">Linkedin</a></span>
-		<span class="footer__description">Marcus Richa - Web Developer</span>
+		<!-- <span class="footer__link"></span> -->
+		<p class="footer__description">Marcus Richa - Web Developer</p>
 	</footer>
 	
 	<script src="./index.js"> </script>
