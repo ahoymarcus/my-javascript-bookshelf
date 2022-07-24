@@ -199,7 +199,7 @@ function checkLibrary() {
 		changeBookNotes();
 		removeBooks();
 	} else {
-		const sideB = new Book('Your Book', 'This is also yours! :-)', 'All taht you need: ', 'not read yet');
+		const sideB = new Book('Your Book here!', 'This is also for you! :-)', 'All that you need: ', 'not read yet');
 		myLibrary.push(sideB);
 		
 		showBooklist(myLibrary);
