@@ -229,7 +229,7 @@ h5 {
 	background-color: #F6D493;
 	width: 34%;
 	height: 10px;
-	margin: 0 auto 100px;
+	margin: 0 auto 70px;
 	border-radius: 4px;
 }
 
@@ -451,16 +451,27 @@ h5 {
 }
 
 @media only screen and (min-width: 755px) {
+	.top-grid-container {
+		display: grid;
+		grid-template-areas:
+			'top-area2 top-area1 top-area1';
+		align-items: end;
+	}
 	.description-partition {
 		/* width: 94%; */
 		max-width: 380px;
-		margin-bottom: 50px;
+		margin-bottom: 150px;
+		grid-area: top-area1;
 	}
 	.description-partition__app-title {
 		font-size: 2.6rem;
 	}
 	.description-partition__app-title span {
 		font-size: 4rem;
+	}
+	
+	.book-stack {
+		grid-area: top-area2;
 	}
 	
 	.book-stack__ornament1 {
@@ -474,21 +485,21 @@ h5 {
 	}
 	
 	.form-partition {
-		grid-area: area1;
+		grid-area: bottom-area1;
 		width: 100%;
 		margin-bottom: 60px; /* (484 - 365) /2 = 60*/
 	}
 	
 	.booklist-partition {
 		/* background-color: transparent; */
-		grid-area: area2;
+		grid-area: bottom-area2;
 	}
 	
 	.book-partitions-container {
 		background-color: #2e2d27; /*#fff9c9;*/
 		display: grid;
 		grid-template-areas: 
-			'area1 area2  area2';
+			'bottom-area1 bottom-area2  bottom-area2';
 		align-items: center;
 	}
 	
