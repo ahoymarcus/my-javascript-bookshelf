@@ -24,7 +24,7 @@ const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 
 
 // UI nodes
 const messageBoard = document.getElementById('hidden-message-board');
-const thirdWallOrnament = document.getElementById('third-ornament');
+const thirdWallOrnament = document.querySelector('.book-stack__ornament3');
 const aboutSection = document.getElementById('description-partition__about');
 const bookShelf = document.getElementById('booklist');
 const addBookBtn = document.getElementById('add-book');
@@ -252,11 +252,9 @@ function printMsg(node, msg = 'Welcome, fell free to post your books here! :-)',
 	let newUINode = createDOMNode(
 	node, message, cssClass);
 	
-	thirdWallOrnament.style.marginBottom = '40px';
 	messageBoard.style.display = 'block';
 	
 	console.log(thirdWallOrnament);
-	
 	
 	messageBoard.appendChild(newUINode);
 	

@@ -229,7 +229,7 @@ h5 {
 	background-color: #F6D493;
 	width: 34%;
 	height: 10px;
-	margin: 0 auto 160px;
+	margin: 0 auto 100px;
 	border-radius: 4px;
 }
 
@@ -318,7 +318,7 @@ h5 {
 
 
 .booklist-partition {
-	background-color: #fff9c9; /*#F6D493;*/
+	background-color: #2e2d27; /*#fff9c9; #F6D493;*/
 	overflow: auto;
 }
 
@@ -337,13 +337,9 @@ h5 {
 	border: 2px solid #9c6006;
 	border-radius:12px;
 	padding: 0 6px;
-	margin: 0 auto 1px;
+	margin: 0 auto 3px;
 	max-width: 370px; 
 	/*370 * 2 = 740 / 370 * 3 = 1100*/
-}
-
-.booklist-partition__book:last-child {
-	margin-bottom: 0;
 }
 
 .booklist-partition__icon {
@@ -390,8 +386,6 @@ h5 {
 	border: 1px solid #b9afaf;
 	border-radius: 4px;
 }
-
-
 
 .div-support-bottom {
 	background-color: #b9afaf;
@@ -453,7 +447,6 @@ h5 {
 	.booklist-partition__shelf {
 		display: flex;
 		flex-wrap: wrap;
-		/* max-width: 800px; */
 	}
 }
 
@@ -480,7 +473,24 @@ h5 {
 		width: 14%;
 	}
 	
+	.form-partition {
+		grid-area: area1;
+		width: 100%;
+		margin-bottom: 60px; /* (484 - 365) /2 = 60*/
+	}
 	
+	.booklist-partition {
+		/* background-color: transparent; */
+		grid-area: area2;
+	}
+	
+	.book-partitions-container {
+		background-color: #2e2d27; /*#fff9c9;*/
+		display: grid;
+		grid-template-areas: 
+			'area1 area2  area2';
+		align-items: center;
+	}
 	
 }
 
