@@ -25,7 +25,7 @@ const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 
 // UI nodes
 const messageBoard = document.getElementById('hidden-message-board');
 const thirdWallOrnament = document.getElementById('third-ornament');
-const aboutSection = document.getElementById('about-section');
+const aboutSection = document.getElementById('description-partition__about');
 const bookShelf = document.getElementById('booklist');
 const addBookBtn = document.getElementById('add-book');
 

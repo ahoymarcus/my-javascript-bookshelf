@@ -15,7 +15,7 @@
 		<span class="header__logo"><a href="#">LOGO</a></span>
 		<nav class="header__nav">
 			<ul class="header__navbar">
-				<li id="about-section"><a target="_blank" href="https://www.linkedin.com/in/marcus-vinicius-richa-183104199/">Linkedin</a></li>
+				<li><a target="_blank" href="https://www.linkedin.com/in/marcus-vinicius-richa-183104199/">Linkedin</a></li>
 				<li><a target="_blank" href="https://github.com/ahoymarcus">GitHub</a></li>
 				<li><a target="_blank" href="https://nextjs-myjs-tech-blog.vercel.app/">JSBlog</a></li>
 				<li><a target="_blank" href="https://redux-reactjs-personal-portfolio-webpage-version-2.netlify.app/">Portfolio</a></li>
@@ -24,26 +24,24 @@
 	</header>
 	
 	
-	<div class="div-shelf-support-top"></div>
+	<div class="div-support-top"></div>
 	
-	<div class="div-wall-ornament" ></div>
+	<div class="div-ornament-top" ></div>
 	
 	
 	<main>
 	
 		<section class="description-partition" >
-			<div class="shelves description-shelf" >
-				<h1 class="description-section__app-title">JavaScript <span>Bookshelf</span></h1>
-				<div class="description-section__ornament" ></div>
+			<div class="shelves description-partition__shelf" >
+				<h1 class="description-partition__app-title">JavaScript <span>Bookshelf</span></h1>
+				<div class="description-partition__ornament" ></div>
+				
+				<div id="description-partition__about" class="description-partition__about-msg">
+				<a  href="#hidden-message-board" >About</a>
+			</div>
 			</div>
 		</section>
 
-
-		<div class="about-section">
-			<img id="about-section" src="./public/images/icons8-flag-96.png" alt="about section flag icon" />
-			<a  href="#msg-board" >About Section</a>
-		</div>
-			
 		
 		<div  class="book-stack" >
 			<div class="book-stack__icon">
@@ -61,78 +59,80 @@
 		<div id="hidden-message-board" class="message-board"></div>
 		
 		
-		<section class="form-partition" >
-			<div class="shelves form-partition__shelf" >		
-				<h4 class="form-partition__desc" >Let's add some amazing new books!</h4>
+		
+			<section class="form-partition" >
+				<div class="shelves form-partition__shelf" >		
+					<h4 class="form-partition__desc" >Let's add some amazing new books!</h4>
+					
+						<label for="title">
+							<h4>BOOK TITLE <span class="form-partition__required-field">*...</span></h4>
+							<input 
+								type="text"
+								id="title" 
+								name="title"
+							/>
+						</label>
 				
-					<label for="title">
-						<h4>BOOK TITLE <span class="form-partition__required-field">*...</span></h4>
-						<input 
-							type="text"
-							id="title" 
-							name="title"
-						/>
-					</label>
+						<label for="author">
+							<h4>AUTHOR'S NAME <span class="form-partition__required-field">*...</span></h4>
+							<input 
+								type="text"
+								id="author" 
+								name="author"
+							/>
+						</label>
+								
+						<label for="num-pages">
+							Number of Pages
+							<input 
+								type="number"
+								id="num-pages" 
+								name="num-pages"
+							/>
+						</label>
+					
+						<label for="is-read-onform">
+							<input 
+								type="checkbox"
+								id="is-read" 
+								name="is-read"
+							/>
+							Has it been read already?
+						</label>		
+					
+					<button id="add-book" class="form-partition__btn" >Add Book</button>
+				</div>
+			</section>
+		
 			
-					<label for="author">
-						<h4>AUTHOR'S NAME <span class="form-partition__required-field">*...</span></h4>
-						<input 
-							type="text"
-							id="author" 
-							name="author"
-						/>
-					</label>
-							
-					<label for="num-pages">
-						Number of Pages
-						<input 
-							type="number"
-							id="num-pages" 
-							name="num-pages"
-						/>
-					</label>
+			<section class="booklist-partition" >
 				
-					<label for="is-read-onform">
-						<input 
-							type="checkbox"
-							id="is-read" 
-							name="is-read"
-						/>
-						Has it been read already?
-					</label>		
+					<div id="booklist" class="booklist-partition__shelf">
+						<!--	
+						<li class="book" >
+							<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
+							<div>
+								<h3>The Hobbit</h3>
+								<h5>J.R.R. Tolkien</h5>
+								<p>295 pages</p>
+								<p>
+									not read yet 
+									<span>
+										<input type="checkbox" id="is-read" name="is-read" />
+									</span>
+								</p>
+							</div>
+						</li>
+						-->
+					</div>
 				
-				<button id="add-book" class="form-partition__btn" >Add Book</button>
-			</div>
-		</section>
+			</section>
 	
 		
-		<section class="booklist-partition" >
-			<div class="shelves booklist-partition__shelf" >
-				<ul id="booklist" >
-					<!--	
-					<li class="book" >
-						<img class="div-color" src="./public/images/icons8-book-64.png" alt="books icon" />
-						<div>
-							<h3>The Hobbit</h3>
-							<h5>J.R.R. Tolkien</h5>
-							<p>295 pages</p>
-							<p>
-								not read yet 
-								<span>
-									<input type="checkbox" id="is-read" name="is-read" />
-								</span>
-							</p>
-						</div>
-					</li>
-					-->
-				</ul>
-			</div>
-		</section>
-	
 	</main>
 	
 	
-	<div class="div-shelf-support-bottom"></div>
+	<div class="div-support-bottom"></div>
 	
 	
 	<footer class="footer">
