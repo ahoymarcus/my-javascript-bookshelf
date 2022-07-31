@@ -338,7 +338,7 @@ h5 {
 	border: 2px solid #9c6006;
 	border-radius:12px;
 	padding: 0 6px;
-	margin: 0 auto 3px;
+	margin: 0 auto 5px;
 	max-width: 370px; 
 	/*370 * 2 = 740 / 370 * 3 = 1100*/
 }
@@ -438,6 +438,10 @@ h5 {
 		display: flex;
 		flex-wrap: wrap;
 	}
+	
+	.booklist-partition__book {
+		margin: 0 auto 10px;
+	}
 }
 
 @media only screen and (min-width: 755px) {
@@ -475,9 +479,10 @@ h5 {
 	
 	.main-container {
 		display: grid;
+		grid-template-columns: 1fr 1fr;
 		grid-template-areas: 
 			'top-area bookshelf';
-		grid-column-gap: 50px;
+		/* grid-column-gap: 50px; */
 	}
 }
 
@@ -495,6 +500,13 @@ h5 {
 	}
 }
 
+
+@media only screen and (min-width: 1270px) {
+	.booklist-partition__shelf {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}
 
 
 
