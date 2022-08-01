@@ -1,0 +1,25 @@
+{
+  "name": "javascript-bookshelf-oop",
+  "version": "1.0.0",
+  "description": "This project aims to model a personal library using JavaScript and the Object Oriented Program Paradigm.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --progress --watch",
+    "build": "webpack --progress --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahoymarcus/my-javascript-bookshelf.git"
+  },
+  "author": "Marcus Richa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahoymarcus/my-javascript-bookshelf/issues"
+  },
+  "homepage": "https://github.com/ahoymarcus/my-javascript-bookshelf#readme",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
