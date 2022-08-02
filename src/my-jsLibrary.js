@@ -106,7 +106,7 @@ function showBooklist(list) {
 	let newNode = list.map((book, idx) => {
 		// Create elements and its properties
 		const li = createDOMNode('li', '', 'booklist-partition__book');	
-		const img = createDOMNode('img', '', 'booklist-partition__icon', '', [{ prop: 'src', value: '../public/images/icons8-book-64.png' }, { prop: 'alt', value: 'books icon' }]);
+		const img = createDOMNode('img', '', 'booklist-partition__icon', '', [{ prop: 'src', value: './public/images/icons8-book-64.png' }, { prop: 'alt', value: 'books icon' }]);
 		const div = createDOMNode('div', '', 'booklist-partition__book-content');
 		const h3 = createDOMNode('h3', book.title, 'booklist-partition__title' );
 		const h5 = createDOMNode('h5', book.author, 'booklist-partition__author');
