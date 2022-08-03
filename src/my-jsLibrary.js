@@ -7,10 +7,7 @@ import printMsg from './components/MessageBoard.js';
 
 
 // UI nodes
-// const messageBoard = document.getElementById('hidden-message-board');
-// const thirdWallOrnament = document.querySelector('.book-stack__ornament3');
 const aboutSection = document.getElementById('description-partition__about');
-// const bookShelf = document.getElementById('booklist');
 const addBookBtn = document.getElementById('add-book');
 
 
@@ -58,7 +55,7 @@ function changeBookNotes() {
 	
 	bookNotes.forEach(note => {
 		note.addEventListener('click', e => {
-			console.dir(e.target);
+			//console.dir(e.target);
 			let noteId = Number(e.target.getAttribute('data-id'));
 			console.log(noteId);
 			
@@ -89,49 +86,6 @@ function removeBooks() {
 		});
 	});	
 }  
-
-
-// function showBooklist(list) {
-// 	bookShelf.innerHTML = null;
-// 	
-// 	let newNode = list.map((book, idx) => {
-// 		// Create elements and its properties
-// 		const li = createDOMNode('li', '', 'booklist-partition__book');	
-// 		const img = createDOMNode('img', '', 'booklist-partition__icon', '', [{ prop: 'src', value: './public/images/icons8-book-64.png' }, { prop: 'alt', value: 'books icon' }]);
-// 		const div = createDOMNode('div', '', 'booklist-partition__book-content');
-// 		const h3 = createDOMNode('h3', book.title, 'booklist-partition__title' );
-// 		const h5 = createDOMNode('h5', book.author, 'booklist-partition__author');
-// 		const para1 = createDOMNode('p', `${book.numPages} pages`, 'booklist-partition__pages');
-// 		
-// 		let span;
-// 		if (book.bookState === 'already read') {
-// 			span = createDOMNode('span', book.bookState, 'booklist-partition__book-read', 'book-note');	
-// 		} else {
-// 			span = createDOMNode('spam', book.bookState, 'booklist-partition__book-not-read', 'book-note');
-// 		}
-// 		
-// 		
-// 		const removeBtn = createDOMNode('button', 'X', 'booklist-partition__remove-btn', '');
-// 		
-// 		// Set global data attribute
-// 		removeBtn.setAttribute('data-id', idx);
-// 		span.setAttribute('data-id', idx);
-// 		
-// 		// Assemble the component		
-// 		div.appendChild(h3);
-// 		div.appendChild(h5);
-// 		div.appendChild(para1);
-// 		div.appendChild(span);
-// 			
-// 		li.appendChild(img);
-// 		li.appendChild(div);
-// 		li.appendChild(removeBtn);
-// 		
-// 		bookShelf.appendChild(li);
-// 		
-// 		return li;
-// 	});
-// }
 
 
 function addBookToLibrary(title, author, numPages, booksRead) {
@@ -173,6 +127,14 @@ function removeBookfromLibrary(bookIndex) {
 }
 
 
+/* AUXILIARY FUNCTIONS */
+function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
+	nodeTitle.value = '';
+	nodeAuthor.value = '';
+	nodePages.value = '';
+	nodeBookNote.checked = false;
+}
+
 function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
 	myLibrary.map((book, idx) => {
 		if (idx === noteId) {
@@ -199,66 +161,5 @@ function checkLibrary() {
 		removeBooks();
 	}
 }
-
-
-/* AUXILIARY FUNCTIONS */
-function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
-	nodeTitle.value = '';
-	nodeAuthor.value = '';
-	nodePages.value = '';
-	nodeBookNote.checked = false;
-}
-
-// function createDOMNode(node = 'p', htmlText, cssClass, cssId, cssProps) {
-// 	let newNode = document.createElement(node);
-// 	
-// 	if (htmlText) {
-// 		const textNode = document.createTextNode(htmlText);
-// 		
-// 		newNode.appendChild(textNode);
-// 	}
-// 	
-// 	if (cssClass) {
-// 		newNode.classList.add(cssClass);
-// 	}
-// 	
-// 	if (cssId) {
-// 		newNode.id = cssId;
-// 	}
-// 	
-// 	//console.log(cssProps);
-// 	//console.log(Array.isArray(cssProps));
-// 	if (Array.isArray(cssProps)) {
-// 		for (let i = 0; i < cssProps.length; i += 1) {
-// 			newNode[cssProps[i].prop] = cssProps[i].value;
-// 		}
-// 	}
-// 	
-// 	return newNode;
-// }
-
-// function printMsg(node, msg = 'Welcome, fell free to post your books here! :-)', cssClass) {
-// 	let message = msg;
-// 	
-// 	let newUINode = createDOMNode(
-// 	node, message, cssClass);
-// 	
-// 	messageBoard.style.display = 'block';
-// 	
-// 	console.log(thirdWallOrnament);
-// 	
-// 	messageBoard.appendChild(newUINode);
-// 	
-// 	const msgTimeout = setTimeout(() => {
-// 		messageBoard.style.display = 'none'
-// 		messageBoard.innerHTML = null;
-// 	}
-// 	, 5000);
-// }
-
-
-
-
-
 
 
