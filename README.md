@@ -22,6 +22,7 @@ Dependências:
 - JavaScript OOP
 - JavaScript Forms Validation
 - Webpack
+- Babel
 - UML (StarUML)
 - Wireframe (Figma)
 - Layout (Figma)
