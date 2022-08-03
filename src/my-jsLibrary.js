@@ -1,25 +1,7 @@
 /*
 * 
 */
-let myLibrary = [];
-
-function Book(title, author, numPages, bookState) {
-	this.title = title;
-	this.author = author;
-	this.numPages = numPages;
-	this.bookState = bookState;
-} 
-
-Book.prototype.info = function() {
-	const info = `${this.title} by ${this.author}, ${this.numPages} pages, ${this.bookState}`;
-			
-	return info;
-}
-
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'already read');
-const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 395, 'not read yet');
-const theTwoTowers = new Book('The Two Towers', 'J.R.R. Tolkien', 395, 'not read yet');
-const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 395, 'not read yet');
+import Book from './model/Book.js';
 
 
 // UI nodes
@@ -29,9 +11,16 @@ const aboutSection = document.getElementById('description-partition__about');
 const bookShelf = document.getElementById('booklist');
 const addBookBtn = document.getElementById('add-book');
 
+
+let myLibrary = [];
+
+const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'already read');
+const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 395, 'not read yet');
+const theTwoTowers = new Book('The Two Towers', 'J.R.R. Tolkien', 395, 'not read yet');
+const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 395, 'not read yet');
+
 myLibrary.push(theHobbit, theFellowship, theTwoTowers, theReturnOfTheKing);
 checkLibrary();
-
 
 
 aboutSection.addEventListener('click', () => {
