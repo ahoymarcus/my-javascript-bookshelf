@@ -1,3 +1,18 @@
+/*
+ * Other book's properties:
+ * coAuthors
+ * volumes
+ * publisher
+ * edition
+ * year
+ * area
+ * publicationType
+ * date
+ * lastChange
+ * 
+ */
+
+
 function Book(title, author, numPages, bookState) {
 	this.title = title;
 	this.author = author;
