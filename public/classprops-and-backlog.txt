@@ -1,0 +1,34 @@
+Backlog:
+1. create class diagram and update use cases diagram
+2. update book-class props;
+3. update info() method
+4. create book-desc element
+5. count book's library
+6. update book form creation
+7. add book editing functionality
+
+
+book-class:
+coAuthors
+volumes
+publisher
+edition
+year
+area
+publicationType
+date
+lastChange
+
+
+
+
+
+
+
+
+
+
+
+
+
+

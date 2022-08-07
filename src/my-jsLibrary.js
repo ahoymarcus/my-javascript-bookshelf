@@ -24,7 +24,7 @@ checkLibrary();
 
 aboutSection.addEventListener('click', () => {
 	console.log('test about sec');
-	let msg = 'Welcome, to this Library and fell free share your books here!';
+	let msg = 'Welcome, to the JS-Library and fell free share your books here!';
 	
 	printMsg('h3', msg, 'message-board-msg');
 });

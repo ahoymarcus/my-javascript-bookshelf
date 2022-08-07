@@ -350,6 +350,7 @@ h5 {
 
 .booklist-partition__book-content {
 	width: 220px;
+    margin-left: 4px;
 }
 
 .booklist-partition__title {
