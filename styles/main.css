@@ -416,6 +416,9 @@ h5 {
 	border-radius: 2px;
 }
 
+.booklist-partition__desc-text {
+	color: #fdbb5b; /*darker=#fdbb5b; lighter=#f8e0bd;*/
+}
 
 
 .div-support-bottom {

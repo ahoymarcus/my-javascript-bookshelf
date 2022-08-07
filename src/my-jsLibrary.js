@@ -67,7 +67,7 @@ function getBookDesc() {
 			
 			let message = `Testing....${btnId}`;
 	
-			showBookBoard('h3', message, 'message-board-msg');
+			showBookBoard('h3', message, 'booklist-partition__desc-text');
 		});
 	});
 }
