@@ -33,10 +33,19 @@ Dependências:
 
 ### Imagem do Diagrama de Casos de Uso para a modelagem do app:
 
-![Imagem do Diagrama de Casos de Uso para a modelagem do app](/public/myBookshelf-use-cases-diagram.png)
+![Imagem do Diagrama de Casos de Uso para a modelagem do app](/public/myBookshelf-use-cases-diagram-user.png)
 
 
 <br />
+
+
+### Imagem do Diagrama de Classes para a modelagem do app:
+
+![Imagem do Diagrama de Classes para a modelagem do app](/public/myBookshelf-class-diagram.png)
+
+
+<br />
+
 
 
 ### Imagem do modelo de Wireframe para o site:

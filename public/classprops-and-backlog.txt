@@ -8,18 +8,6 @@ Backlog:
 7. add book editing functionality
 
 
-book-class:
-coAuthors
-volumes
-publisher
-edition
-year
-area
-publicationType
-date
-lastChange
-
-
 
 
 
