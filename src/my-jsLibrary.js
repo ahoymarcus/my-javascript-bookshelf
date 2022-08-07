@@ -4,11 +4,13 @@
 import Book from './model/Book.js';
 import showBooklist from './components/Booklist.js';
 import showMessageBoard from './components/MessageBoard.js';
+import showBookBoard from './components/BookDesc.js';
 
 
 // UI nodes
 const aboutSection = document.getElementById('description-partition__about');
 const addBookBtn = document.getElementById('add-book');
+const bookshelfBoard = document.getElementById('book-desc');
 
 
 let myLibrary = [];
@@ -43,10 +45,32 @@ addBookBtn.addEventListener('click', () => {
 	
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 	
+	// Render library
 	showBooklist(myLibrary);
+	
+	// Pass Eventlisteners
+	getBookDesc();
 	changeBookNotes();
 	removeBooks();
 });
+
+
+function getBookDesc() {
+	const descBtns = document.querySelectorAll('.booklist-partition__bookdesc-btn');
+	
+	descBtns.forEach(btn => {
+		btn.addEventListener('click', e => {
+			//console.dir(e.target);
+			let btnId = Number(e.target.getAttribute('data-id'));
+			console.log(btnId);
+			
+			
+			let message = `Testing....${btnId}`;
+	
+			showBookBoard('h3', message, 'message-board-msg');
+		});
+	});
+}
 
 
 
@@ -79,7 +103,11 @@ function removeBooks() {
 			
 			removeBookfromLibrary(btnIndex);
 			
+			// Render Booklist
 			showBooklist(myLibrary);
+			
+			// Pass Eventlisteners
+			getBookDesc();
 			changeBookNotes();
 			removeBooks();
 			checkLibrary();
@@ -149,14 +177,22 @@ function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
 
 function checkLibrary() {
 	if (myLibrary.length > 0) {
+		// Render library
 		showBooklist(myLibrary);
+		
+		// Pass Eventlisteners
+		getBookDesc();
 		changeBookNotes();
 		removeBooks();
 	} else {
 		const sideB = new Book('Your Book here!', 'This is also for you! :-)', 'All that you need: ', 'not read yet');
 		myLibrary.push(sideB);
 		
+		// Render library
 		showBooklist(myLibrary);
+		
+		// Pass Eventlisteners
+		getBookDesc();
 		changeBookNotes();
 		removeBooks();
 	}

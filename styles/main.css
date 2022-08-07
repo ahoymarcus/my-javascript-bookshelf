@@ -358,6 +358,20 @@ h5 {
 	margin-bottom: 2px;
 }
 
+.booklist-partition__bookdesc-btn {
+	color: black;
+	background: #ebe6e6;
+	font-size: 0.7rem;
+	margin-left: 5px;
+	padding: 0px 5px;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.booklist-partition__bookdesc-btn:hover {
+	text-shadow: 1px 1px 1px #E99797;
+	cursor: pointer;
+}
+
 .booklist-partition__author {
 	color: #b9afaf;
 	margin-bottom: 1px;
@@ -372,14 +386,18 @@ h5 {
 .booklist-partition__book-not-read {
 	color: #eb9e9e; /*#8f8c8c;*/
 	background-color: #87444469;
+	font-size: 0.9rem;
 	border-radius: 6px;
 	padding: 1px 5px;
+	cursor: pointer;
 }
 .booklist-partition__book-read {
 	color: #443939;
 	background-color: #d4fabea6; /*#D4FABE;*/
+	font-size: 0.9rem;
 	border-radius: 6px;
 	padding: 1px 5px;
+	cursor: pointer;
 }
 
 .booklist-partition__remove-btn {
