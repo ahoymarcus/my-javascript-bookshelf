@@ -3,7 +3,7 @@
 */
 import Book from './model/Book.js';
 import showBooklist from './components/Booklist.js';
-import printMsg from './components/MessageBoard.js';
+import showMessageBoard from './components/MessageBoard.js';
 
 
 // UI nodes
@@ -24,9 +24,9 @@ checkLibrary();
 
 aboutSection.addEventListener('click', () => {
 	console.log('test about sec');
-	let msg = 'Welcome, to the JS-Library and fell free share your books here!';
+	let message = 'Welcome, to the JS-Library and fell free share your books here!';
 	
-	printMsg('h3', msg, 'message-board-msg');
+	showMessageBoard('h3', message, 'message-board-msg');
 });
 
 
@@ -109,9 +109,9 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 	} else {
 		console.log(`Please, fill all the required fields: TITLE and AUTHOR`);
 		
-		let msg = 'Please, fill all the required fields: TITLE and AUTHOR';
+		let message = 'Please, fill all the required fields: TITLE and AUTHOR';
 		
-		printMsg('h4', msg, 'message-board-validation');
+		showMessageBoard('h4', message, 'message-board-validation');
 	}  
 }
 

@@ -383,15 +383,19 @@ h5 {
 }
 
 .booklist-partition__remove-btn {
-	color: #b9afaf;
+	color: #f8e0bd;
 	background-color: #87444491;
 	border: 1px solid #b9afaf;
 	border-radius: 4px;
 }
 
 .booklist-partition__book-desc {
-	color: white;
-	background-color: blue;
+	color: #fdbb5b; /*darker=#fdbb5b; lighter=#f8e0bd;*/
+	background-color: #718955; /*green=#8bc34a;blue=#357a9b;*/
+	width:90%;
+	padding: 20px;
+	margin: 50px auto;
+	border-radius: 2px;
 }
 
 

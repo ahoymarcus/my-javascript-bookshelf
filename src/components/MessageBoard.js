@@ -1,15 +1,15 @@
-import { createDOMNode } from './auxUIFunctions.js';
+import { createDOMNode, printMsg } from './auxUIFunctions.js';
 
 
 // UI nodes
 const messageBoard = document.getElementById('hidden-message-board');
 const thirdWallOrnament = document.querySelector('.book-stack__ornament3');
 
-function printMsg(node, msg = 'Welcome, fell free to post your books here! :-)', cssClass) {
-	let message = msg;
+let msg = 'Welcome, fell free to post your books here! :-)';
+
+function showMessageBoard(node, message = msg, cssClass) {
 	
-	let newUINode = createDOMNode(
-	node, message, cssClass);
+	let newUINode = printMsg(node, message, cssClass);
 	
 	messageBoard.style.display = 'block';
 	
@@ -25,5 +25,5 @@ function printMsg(node, msg = 'Welcome, fell free to post your books here! :-)',
 }
 
 
-export default printMsg;
+export default showMessageBoard;
 

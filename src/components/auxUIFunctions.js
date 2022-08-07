@@ -27,7 +27,19 @@ function createDOMNode(node = 'p', htmlText, cssClass, cssId, cssProps) {
 }
 
 
+function printMsg(node, msg, cssClass) {
+	let message = msg;
+	
+	let newUINode = createDOMNode(
+	node, message, cssClass);
+	
+	return newUINode;
+}
+
+
 export {
     createDOMNode,
+		printMsg,
 };
+
 

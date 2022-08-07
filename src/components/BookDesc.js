@@ -1,17 +1,19 @@
-import { createDOMNode } from './auxUIFunctions.js';
+import { createDOMNode, printMsg } from './auxUIFunctions.js';
 
 
 // UI nodes
-const booklistPartition = document.querySelector('.booklist-partition');
+const booklistPartitionDesc = document.querySelector('.booklist-partition__book-desc');
 
-function showBookDesc() {
+let msg = 'Click on the books to get their descriptions!';
+
+function showBookBoard(node, message = msg, cssClass) {
+	booklistPartitionDesc.innerHTML = null;
 	
-	//let newUINode = createDOMNode(
-	node, message, cssClass);
+	let newUINode = printMsg(node, message, cssClass);
 	
-	
+	booklistPartitionDesc.appendChild(newUINode);
 }
 
 
-export default showBookDesc;
+export default showBookBoard;
 
