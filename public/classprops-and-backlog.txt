@@ -1,9 +1,6 @@
 Backlog:
-1. update info() method
-2. create book-desc element
-3. count book's library
-4. update book form creation
-5. add book editing functionality
+1. count book's library
+2. add book editing functionality
 
 
 
