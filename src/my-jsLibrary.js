@@ -43,40 +43,46 @@ addBookBtn.addEventListener('click', () => {
 	
 	addBookToLibrary(nodeTitle.value, nodeAuthor.value, nodePages.value, nodeBookNote.checked);
 	
+    let bookBoardMsg = `Your book "${nodeTitle.value}" was added to the JS-LIBRARY!`;
+    
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 	
+    let temp = myLibrary.filter(book => book.title !== 'Your Book here!');
+    
 	// Render library
-	showBooklist(myLibrary);
+	showBooklist(temp);
 	
 	// Pass Eventlisteners
 	getBookDesc();
 	changeBookNotes();
 	removeBooks();
-});
+    
+    // Show bookshelfBoard
+    showBookBoard('h4', bookBoardMsg, 'booklist-partition__desc-text2');
+}); 
 
 
 function getBookDesc() {
-	const descBtns = document.querySelectorAll('.booklist-partition__bookdesc-btn');
-	
-	descBtns.forEach(btn => {
-		btn.addEventListener('click', e => {
-			//console.dir(e.target);
-			let btnId = Number(e.target.getAttribute('data-id'));
-			console.log(btnId);
-			
-			let book = myLibrary.filter((book, idx) => {
-				if (idx === btnId) {
-					return book;
-				}
-			});
-			
-			let message = book[0].description();
-	
-			showBookBoard('h3', book[0].info(), 'booklist-partition__desc-text');
-		});
-	});
-}
+    const descBtns = document.querySelectorAll('.booklist-partition__bookdesc-btn');
 
+    descBtns.forEach(btn => {
+        btn.addEventListener('click', e => {
+            //console.dir(e.target);
+            let btnId = Number(e.target.getAttribute('data-id'));
+            console.log(btnId);
+            
+            let book = myLibrary.filter((book, idx) => {
+                if (idx === btnId) {
+                    return book;
+                }
+            });
+            
+            let message = book[0].description();
+
+            showBookBoard('h4', book[0].info(), 'booklist-partition__desc-text');
+        });
+    });
+}
 
 
 function changeBookNotes() {
@@ -181,14 +187,22 @@ function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
 }
 
 function checkLibrary() {
-	if (myLibrary.length > 0) {
-		// Render library
-		showBooklist(myLibrary);
+	let bookBoardMsg = `${myLibrary.length} book(s) :::  Click on the books to get their descriptions!`;
+    
+    if (myLibrary.length > 0) {
+		let temp = myLibrary.filter(book => book.title !== 'Your Book here!');
+        
+        
+        // Render library
+		showBooklist(temp);
 		
 		// Pass Eventlisteners
 		getBookDesc();
 		changeBookNotes();
 		removeBooks();
+        
+        // Show bookshelfBoard
+        showBookBoard('h4', bookBoardMsg, 'booklist-partition__desc-text2');
 	} else {
 		const sideB = new Book('Your Book here!', 'This is also for you! :-)', 'All that you need: ', 'not read yet');
 		myLibrary.push(sideB);
@@ -197,9 +211,10 @@ function checkLibrary() {
 		showBooklist(myLibrary);
 		
 		// Pass Eventlisteners
-		getBookDesc();
-		changeBookNotes();
 		removeBooks();
+        
+        // Show bookshelfBoard
+        showBookBoard('h4', bookBoardMsg, 'booklist-partition__desc-text2');
 	}
 }
 

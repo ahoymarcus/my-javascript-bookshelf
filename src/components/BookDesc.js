@@ -4,14 +4,16 @@ import { createDOMNode, printMsg } from './auxUIFunctions.js';
 // UI nodes
 const booklistPartitionDesc = document.querySelector('.booklist-partition__book-desc');
 
-let msg = 'Click on the books to get their descriptions!';
+let defaultMsg = 'JAVASCRIPT BOOKSHELF';
 
-function showBookBoard(node, message = msg, cssClass) {
-	booklistPartitionDesc.innerHTML = null;
-	
-	let newUINode = printMsg(node, message, cssClass);
-	
-	booklistPartitionDesc.appendChild(newUINode);
+function showBookBoard(node, message = defaultMsg, cssClass) {
+    booklistPartitionDesc.innerHTML = null;
+    
+        let newLibraryNode = printMsg('h2', defaultMsg, 'booklist-partition__desc-text1');
+        booklistPartitionDesc.appendChild(newLibraryNode);
+    
+        let newBookNode = printMsg(node, message, cssClass);
+        booklistPartitionDesc.appendChild(newBookNode);
 }
 
 

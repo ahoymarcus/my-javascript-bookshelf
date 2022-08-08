@@ -66,7 +66,7 @@ h1 {
 	font-size: 2.2rem;
 }
 h2 {
-	font-size: 1.7rem;
+	font-size: 2rem;
 }
 h3 {
 	font-size: 1.3rem;
@@ -414,7 +414,6 @@ h5 {
 .booklist-partition__book-desc {
 	color: #767072; /*darker=#fdbb5b; lighter=#f8e0bd;*/
 	font-weight: bold;
-	text-shadow: 0.4px 0.4px 0.4px #e17070, 1.3px 1.3px 1px #e3c9c6, 1.3px 1.3px 1px yellow;
 	background-color: #bec8b2; /*green=#8bc34a;blue=#357a9b;*/
 	width:90%;
 	padding: 20px;
@@ -424,8 +423,13 @@ h5 {
 	text-align: center;
 }
 
-.booklist-partition__desc-text {
-	color: #767072; /*darker=#fdbb5b; lighter=#f8e0bd;*/
+.booklist-partition__desc-text1 {
+	text-shadow: 1px 1px 1px #e17070, 3px 3px 3px #e3c9c6, 2.5px 2.5px 2.5px yellow;
+}
+
+.booklist-partition__desc-text2 {
+	color: #9b5252; /*darker=#fdbb5b; lighter=#f8e0bd;*/
+	margin-top: 40px;
 }
 
 
