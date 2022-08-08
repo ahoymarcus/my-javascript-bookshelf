@@ -1,8 +1,6 @@
 Backlog:
 
-0. After adding new book from form, send its data to the BookDesc element.
-1. count book's library
-2. add book editing functionality
+1. Add book editing functionality (use the BookDesc space?!)
 
 
 

@@ -47,10 +47,10 @@ addBookBtn.addEventListener('click', () => {
     
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 	
-    let temp = myLibrary.filter(book => book.title !== 'Your Book here!');
+    myLibrary = myLibrary.filter(book => book.title !== 'Your Book here!');
     
 	// Render library
-	showBooklist(temp);
+	showBooklist(myLibrary);
 	
 	// Pass Eventlisteners
 	getBookDesc();
@@ -190,11 +190,10 @@ function checkLibrary() {
 	let bookBoardMsg = `${myLibrary.length} book(s) :::  Click on the books to get their descriptions!`;
     
     if (myLibrary.length > 0) {
-		let temp = myLibrary.filter(book => book.title !== 'Your Book here!');
-        
+		myLibrary = myLibrary.filter(book => book.title !== 'Your Book here!');
         
         // Render library
-		showBooklist(temp);
+		showBooklist(myLibrary);
 		
 		// Pass Eventlisteners
 		getBookDesc();
