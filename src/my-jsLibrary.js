@@ -64,10 +64,15 @@ function getBookDesc() {
 			let btnId = Number(e.target.getAttribute('data-id'));
 			console.log(btnId);
 			
+			let book = myLibrary.filter((book, idx) => {
+				if (idx === btnId) {
+					return book;
+				}
+			});
 			
-			let message = `Testing....${btnId}`;
+			let message = book[0].description();
 	
-			showBookBoard('h3', message, 'booklist-partition__desc-text');
+			showBookBoard('h3', book[0].info(), 'booklist-partition__desc-text');
 		});
 	});
 }

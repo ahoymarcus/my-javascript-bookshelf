@@ -321,6 +321,10 @@ h5 {
 .booklist-partition {
 	background-color: #739195; /*#2e2d27; #fff9c9; #F6D493;*/
 	overflow: auto;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
 .booklist-partition__shelf {
@@ -408,16 +412,20 @@ h5 {
 }
 
 .booklist-partition__book-desc {
-	color: #fdbb5b; /*darker=#fdbb5b; lighter=#f8e0bd;*/
-	background-color: #718955; /*green=#8bc34a;blue=#357a9b;*/
+	color: #767072; /*darker=#fdbb5b; lighter=#f8e0bd;*/
+	font-weight: bold;
+	text-shadow: 0.4px 0.4px 0.4px #e17070, 1.3px 1.3px 1px #e3c9c6, 1.3px 1.3px 1px yellow;
+	background-color: #bec8b2; /*green=#8bc34a;blue=#357a9b;*/
 	width:90%;
 	padding: 20px;
 	margin: 50px auto;
-	border-radius: 2px;
+	border-radius: 22px;
+	line-height: 2.5rem;
+	text-align: center;
 }
 
 .booklist-partition__desc-text {
-	color: #fdbb5b; /*darker=#fdbb5b; lighter=#f8e0bd;*/
+	color: #767072; /*darker=#fdbb5b; lighter=#f8e0bd;*/
 }
 
 
