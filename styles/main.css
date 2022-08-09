@@ -416,7 +416,7 @@ h5 {
 	font-weight: bold;
 	background-color: #bec8b2; /*green=#8bc34a;blue=#357a9b;*/
 	width:90%;
-	padding: 20px;
+	padding: 30px;
 	margin: 50px auto;
 	border-radius: 22px;
 	line-height: 2.5rem;
@@ -425,11 +425,20 @@ h5 {
 
 .booklist-partition__desc-text1 {
 	text-shadow: 1px 1px 1px #e17070, 3px 3px 3px #e3c9c6, 2.5px 2.5px 2.5px yellow;
+    margin-bottom: 10px;
 }
 
 .booklist-partition__desc-text2 {
 	color: #9b5252; /*darker=#fdbb5b; lighter=#f8e0bd;*/
-	margin-top: 40px;
+/* 	margin-top: 40px; */
+}
+
+.booklist-partition__ornament {
+	background-color: #F6D493;
+	height: 10px;
+    width: 72%;
+    margin: 0 auto 40px;
+    border-radius: 22px;
 }
 
 

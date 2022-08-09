@@ -79,7 +79,7 @@ function getBookDesc() {
             
             let message = book[0].description();
 
-            showBookBoard('h4', book[0].info(), 'booklist-partition__desc-text');
+            showBookBoard('h4', book[0].info(), 'booklist-partition__desc-text2');
         });
     });
 }
