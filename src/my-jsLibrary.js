@@ -2,7 +2,6 @@
 * 
 */
 import Library from './model/Library.js';
-// import Book from './model/Book.js';
 
 import showBooklist from './components/Booklist.js';
 import showMessageBoard from './components/MessageBoard.js';
@@ -10,7 +9,6 @@ import showBookBoard from './components/BookDesc.js';
 
 // book data
 import { libraryDataArr } from './data/library-data-array.js';
-// import { libraryDataJson } from './data/library-data-json.js';
 
 // UI nodes
 const aboutSection = document.getElementById('description-partition__about');
@@ -18,22 +16,8 @@ const addBookBtn = document.getElementById('add-book');
 const bookshelfBoard = document.getElementById('book-desc');
 
 
-// let myLibrary = [];
-// 
-// const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'already read');
-// const theFellowship = new Book('The Fellowship of the Ring', 'J.R.R. Tolkien', 395, 'not read yet');
-// const theTwoTowers = new Book('The Two Towers', 'J.R.R. Tolkien', 395, 'not read yet');
-// const theReturnOfTheKing = new Book('The Return of the King', 'J.R.R. Tolkien', 395, 'not read yet');
-// 
-// myLibrary.push(theHobbit, theFellowship, theTwoTowers, theReturnOfTheKing);
-
-
 const myBookshelf = new Library('JavaScript Bookshelf');
 myBookshelf.addBookList(libraryDataArr);
-
-// console.log(myBookshelf.title);
-// console.log(myBookshelf.library.length);
-// console.log(myBookshelf.library);
 
 checkLibrary();
 
@@ -56,13 +40,24 @@ addBookBtn.addEventListener('click', () => {
 	
 	console.log('input checked value: ', nodeBookNote.checked);
 	
+    let cashedLibraryLength = myBookshelf.library.length;
+    
 	addBookToLibrary(nodeTitle.value, nodeAuthor.value, nodePages.value, nodeBookNote.checked);
-	
-    let bookBoardMsg = `Your book "${nodeTitle.value}" was added to the JS-LIBRARY!`;
+
+    
+    let bookBoardMsg;
+    if (cashedLibraryLength !== myBookshelf.library.length) {
+        bookBoardMsg = `Your book "${nodeTitle.value}" was added to the JS-LIBRARY!`;
+        
+        myBookshelf.library = myBookshelf.library.filter(book => book.title !== 'Your Book here!');
+    } else {
+        bookBoardMsg = 'Click on the books to get their descriptions!';
+    }
+   
     
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 	
-    myBookshelf.library = myBookshelf.library.filter(book => book.title !== 'Your Book here!');
+    
     
 	// Render library
 	showBooklist(myBookshelf.library);
@@ -72,8 +67,11 @@ addBookBtn.addEventListener('click', () => {
 	changeBookNotes();
 	removeBooks();
     
+    
+    console.log(myBookshelf);
+    
     // Show bookshelfBoard
-    showBookBoard('h4', bookBoardMsg, 'booklist-partition__desc-text2');
+    showBookBoard('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 }); 
 
 
@@ -92,9 +90,10 @@ function getBookDesc() {
                 }
             });
             
+            // Alternative book method details
             let message = book[0].description();
 
-            showBookBoard('h4', book[0].info(), 'booklist-partition__desc-text2');
+            showBookBoard('h4', book[0].info(), 'booklist-partition__board-text2', myBookshelf);
         });
     });
 }
@@ -155,7 +154,6 @@ function addBookToLibrary(title, author, numPages, bookState) {
 			bookState = 'not read yet';
 		}
 		
-// 		const book = new Book(title, author, numPages, booksRead);
         const newBook = {
             title,
             author,
@@ -208,7 +206,7 @@ function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
 }
 
 function checkLibrary() {
-	let bookBoardMsg = `${myBookshelf.libSize} book(s) :::  Click on the books to get their descriptions!`;
+	let bookBoardMsg = 'Click on the books to get their descriptions!';
     
     if (myBookshelf.library.length > 0) {
 		myBookshelf.library = myBookshelf.library.filter(book => book.title !== 'Your Book here!');
@@ -222,7 +220,7 @@ function checkLibrary() {
 		removeBooks();
         
         // Show bookshelfBoard
-        showBookBoard('h4', bookBoardMsg, 'booklist-partition__desc-text2');
+        showBookBoard('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf, myBookshelf);
 	} else {
 		const defaultBook = {
             title: 'Your Book here!', 
@@ -232,6 +230,8 @@ function checkLibrary() {
         };
 		myBookshelf.addBook(defaultBook);
 		
+        console.log(myBookshelf);
+        
 		// Render library
 		showBooklist(myBookshelf.library);
 		
@@ -239,7 +239,7 @@ function checkLibrary() {
 		removeBooks();
         
         // Show bookshelfBoard
-        showBookBoard('h4', bookBoardMsg, 'booklist-partition__desc-text2');
+        showBookBoard('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 	}
 }
 
