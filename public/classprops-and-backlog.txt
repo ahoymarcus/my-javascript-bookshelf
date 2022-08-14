@@ -1,5 +1,6 @@
 Backlog:
 
+0. Fix adding book to UI when the form validation does not pass
 1. Create a global context the manage the app's states
 2. Transform lybrary into JSON ans write into a data directory of the filesystem.
 3. Add book editing functionality (use the BookDesc space?!).

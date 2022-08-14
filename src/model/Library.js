@@ -7,7 +7,9 @@ function Library(title) {
 
 
 Library.prototype.addBook = function(book) {
-    this.library.push(book);
+    let newBook = new Book(book.title, book.author, book.numPages, book.bookState);
+    
+    this.library.push(newBook);
 }
 
 Library.prototype.addBookList = function(books) {

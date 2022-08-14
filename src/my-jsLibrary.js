@@ -31,16 +31,16 @@ const bookshelfBoard = document.getElementById('book-desc');
 const myBookshelf = new Library('JavaScript Bookshelf');
 myBookshelf.addBookList(libraryDataArr);
 
-console.log(myBookshelf.title);
-console.log(myBookshelf.library.length);
-console.log(myBookshelf.library);
+// console.log(myBookshelf.title);
+// console.log(myBookshelf.library.length);
+// console.log(myBookshelf.library);
 
 checkLibrary();
 
 
 
 aboutSection.addEventListener('click', () => {
-	console.log('test about sec');
+	console.log('test about section');
 	let message = 'Welcome, to the JS-Library and fell free share your books here!';
 	
 	showMessageBoard('h3', message, 'message-board-msg');
@@ -62,10 +62,10 @@ addBookBtn.addEventListener('click', () => {
     
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 	
-    myLibrary = myLibrary.filter(book => book.title !== 'Your Book here!');
+    myBookshelf.library = myBookshelf.library.filter(book => book.title !== 'Your Book here!');
     
 	// Render library
-	showBooklist(myLibrary);
+	showBooklist(myBookshelf.library);
 	
 	// Pass Eventlisteners
 	getBookDesc();
@@ -142,24 +142,30 @@ function removeBooks() {
 }  
 
 
-function addBookToLibrary(title, author, numPages, booksRead) {
+function addBookToLibrary(title, author, numPages, bookState) {
   if (title && author) {
 		if (!numPages) {
 			numPages = 0;
 		}
 		
-		console.log('input checked value: ', booksRead);
-		if (booksRead) {
-			booksRead = 'already read';
+		console.log('input checked value: ', bookState);
+		if (bookState) {
+			bookState = 'already read';
 		} else {
-			booksRead = 'not read yet';
+			bookState = 'not read yet';
 		}
 		
-		const book = new Book(title, author, numPages, booksRead);
+// 		const book = new Book(title, author, numPages, booksRead);
+        const newBook = {
+            title,
+            author,
+            numPages,
+            bookState
+        };
 		
-		myLibrary.push(book);
+		myBookshelf.addBook(newBook);
 		
-		console.log(myLibrary);
+		console.log(myBookshelf.library);
 	} else {
 		console.log(`Please, fill all the required fields: TITLE and AUTHOR`);
 		
