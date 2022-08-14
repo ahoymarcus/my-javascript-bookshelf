@@ -130,7 +130,7 @@ function removeBooks() {
 			removeBookfromLibrary(btnIndex);
 			
 			// Render Booklist
-			showBooklist(myLibrary);
+			showBooklist(myBookshelf.library);
 			
 			// Pass Eventlisteners
 			getBookDesc();
@@ -171,13 +171,13 @@ function addBookToLibrary(title, author, numPages, booksRead) {
 
 
 function removeBookfromLibrary(bookIndex) {
-	myLibrary = myLibrary.filter((book, idx) => {
+	myBookshelf.library = myBookshelf.library.filter((book, idx) => {
 		if (idx !== bookIndex) {
 			return book;
 		}
 	});
 		
-	console.log(myLibrary);
+	console.log(myBookshelf.library);
 }
 
 
