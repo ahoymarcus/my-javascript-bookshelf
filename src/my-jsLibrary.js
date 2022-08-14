@@ -86,7 +86,7 @@ function getBookDesc() {
             let btnId = Number(e.target.getAttribute('data-id'));
             console.log(btnId);
             
-            let book = myLibrary.filter((book, idx) => {
+            let book = myBookshelf.library.filter((book, idx) => {
                 if (idx === btnId) {
                     return book;
                 }
@@ -190,7 +190,7 @@ function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
 }
 
 function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
-	myLibrary.map((book, idx) => {
+	myBookshelf.library.map((book, idx) => {
 		if (idx === noteId) {
 			book.bookState = note;
 		}
