@@ -1,14 +1,8 @@
 Backlog:
 
 1. validate Library.addBookList(books) for strings/JSON.
-2. Transform library into JSON and write into a data directory of the filesystem.
+2. Add book editing functionality (use the BookDesc space?!).
 3. Add LocalStorage
-4. Add book editing functionality (use the BookDesc space?!).
-
-
-
-
-
 
 
 
