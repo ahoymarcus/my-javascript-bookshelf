@@ -61,15 +61,17 @@
 			<div id="hidden-message-board" class="message-board"></div>
 		
 		
-			<div class="current-book">
-				<p class="current-book__intro">Currently Selected Book</p>
-				<div class="current-book__book"></div>
-				<p class="current-book__btn">edit</p>
-			</div>
+			<!-- <div class="current-book"> -->
+				<!-- <p class="current-book__intro">Currently Selected Book</p> -->
+				<!-- <div class="current-book__book"></div> -->
+				<!-- <p class="current-book__btn">edit</p> -->
+			<!-- </div> -->
+		
 		
 			<section class="form-partition" >
-				<div class="shelves form-partition__shelf" >		
-					<h4 class="form-partition__desc" >Let's add some amazing new books!</h4>
+				<div class="shelves form-partition__shelf" >
+					<h4 class="form-partition__desc" >Click on a book's description or Add a brand new book to the Bookshelf Library!</h4>
+					<p class="form-partition__selected">There is no selected book!</p>
 					
 						<label for="title">
 							<h4>BOOK TITLE <span class="form-partition__required-field">*...</span></h4>
@@ -107,7 +109,11 @@
 							Has it been read already?
 						</label>		
 					
-					<button id="add-book" class="form-partition__btn" >Add Book</button>
+					<div class="form-partition__btns">
+						<button id="add-book" class="form-partition__add" >Add Book</button>
+						<button id="clear-book" class="form-partition__clear" >Clear</button>
+						<button id="edit-book" class="form-partition__edit" disabled >Edit Book</button>
+					</div>	
 				</div>
 			</section>
 		</div>

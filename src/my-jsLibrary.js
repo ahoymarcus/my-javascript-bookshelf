@@ -14,9 +14,11 @@ import { libraryDataArr } from './data/library-data-array.js';
 
 // UI nodes
 const aboutSection = document.getElementById('description-partition__about');
-const addBookBtn = document.getElementById('add-book');
+const formAddBtn = document.querySelector('.form-partition__add');
+const formClearBtn = document.querySelector('.form-partition__clear');
+const formEditBtn = document.querySelector('.form-partition__edit');
 const bookshelfBoard = document.getElementById('book-desc');
-
+const currentSelectBook = document.querySelector('.form-partition__selected');
 
 let currentSelectedBook;
 const myBookshelf = new Library('JavaScript Bookshelf');
@@ -33,7 +35,24 @@ aboutSection.addEventListener('click', () => {
 });
 
 
-addBookBtn.addEventListener('click', () => {
+formClearBtn.addEventListener('click', () => {
+	// Form nodes
+	const nodeTitle = document.getElementById('title');
+	const nodeAuthor = document.getElementById('author');
+	const nodePages = document.getElementById('num-pages');
+	const nodeBookNote = document.getElementById('is-read');
+	
+	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
+	
+	let msg = 'There is no selected book!';
+	currentSelectBook.textContent = msg;
+	
+	currentSelectedBook = null;
+	formAddBtn.disabled = false;
+	formEditBtn.disabled = true;
+});
+
+formAddBtn.addEventListener('click', () => {
 	// Form nodes
 	const nodeTitle = document.getElementById('title');
 	const nodeAuthor = document.getElementById('author');
@@ -97,7 +116,7 @@ function getBookDesc() {
 						// Deep copy
 						currentSelectedBook = JSON.parse(JSON.stringify(book[0]));
 						console.log(currentSelectedBook);
-						showSelectedBook('p', '', 'current-book__title', currentSelectedBook);
+						showSelectedBook(currentSelectedBook);
 						
             // Alternative book method details
             let message = book[0].description();
