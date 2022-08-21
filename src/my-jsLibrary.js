@@ -3,9 +3,11 @@
 */
 import Library from './model/Library.js';
 
+// Components
 import showBooklist from './components/Booklist.js';
 import showMessageBoard from './components/MessageBoard.js';
 import showBookBoard from './components/BookDesc.js';
+import showSelectedBook from './components/SelectedBook.js';
 
 // book data
 import { libraryDataArr } from './data/library-data-array.js';
@@ -16,11 +18,11 @@ const addBookBtn = document.getElementById('add-book');
 const bookshelfBoard = document.getElementById('book-desc');
 
 
+let currentSelectedBook;
 const myBookshelf = new Library('JavaScript Bookshelf');
 myBookshelf.addBookList(libraryDataArr);
 
 checkLibrary();
-
 
 
 aboutSection.addEventListener('click', () => {
@@ -77,7 +79,9 @@ addBookBtn.addEventListener('click', () => {
 
 function getBookDesc() {
     const descBtns = document.querySelectorAll('.booklist-partition__bookdesc-btn');
-
+		
+		
+		
     descBtns.forEach(btn => {
         btn.addEventListener('click', e => {
             //console.dir(e.target);
@@ -90,6 +94,11 @@ function getBookDesc() {
                 }
             });
             
+						// Deep copy
+						currentSelectedBook = JSON.parse(JSON.stringify(book[0]));
+						console.log(currentSelectedBook);
+						showSelectedBook('p', '', 'current-book__title', currentSelectedBook);
+						
             // Alternative book method details
             let message = book[0].description();
 

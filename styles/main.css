@@ -447,6 +447,47 @@ h5 {
 }
 
 
+
+
+.current-book {
+	background-color: white;
+	height: 140px;
+	width: 70%;
+	margin: 0 auto 25px;
+	padding: 20px;
+	border-radius: 70px;
+	text-align: center;
+}
+
+.current-book__intro {
+	text-decoration: underline;
+	margin-bottom: 20px;
+}
+
+.current-book__title {
+	color: red;
+	margin-bottom: 10px;
+}
+
+.current-book__btn {
+	background-color: #F6D493;
+	width: 55px;
+	margin: auto;
+	padding: 3px 0;
+	border-radius: 12px;
+	cursor: pointer;
+	
+	display: none;
+}
+
+
+
+
+
+
+
+
+
 .div-support-bottom {
 	background-color: #b9afaf;
 	height: 4px;
