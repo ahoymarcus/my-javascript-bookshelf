@@ -6,7 +6,7 @@ import Library from './model/Library.js';
 // Components
 import showBooklist from './components/Booklist.js';
 import showMessageBoard from './components/MessageBoard.js';
-import showBookBoard from './components/BookDesc.js';
+import showBookDescription from './components/BookDesc.js';
 import showSelectedBook from './components/SelectedBook.js';
 
 // book data
@@ -18,7 +18,7 @@ const formAddBtn = document.querySelector('.form-partition__add');
 const formClearBtn = document.querySelector('.form-partition__clear');
 const formEditBtn = document.querySelector('.form-partition__edit');
 const bookshelfBoard = document.getElementById('book-desc');
-const currentSelectBook = document.querySelector('.form-partition__selected');
+const currentSelectBookTitle = document.querySelector('.form-partition__selected');
 
 let currentSelectedBook;
 const myBookshelf = new Library('JavaScript Bookshelf');
@@ -34,23 +34,6 @@ aboutSection.addEventListener('click', () => {
 	showMessageBoard('h3', message, 'message-board-msg');
 });
 
-
-formClearBtn.addEventListener('click', () => {
-	// Form nodes
-	const nodeTitle = document.getElementById('title');
-	const nodeAuthor = document.getElementById('author');
-	const nodePages = document.getElementById('num-pages');
-	const nodeBookNote = document.getElementById('is-read');
-	
-	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
-	
-	let msg = 'There is no selected book!';
-	currentSelectBook.textContent = msg;
-	
-	currentSelectedBook = null;
-	formAddBtn.disabled = false;
-	formEditBtn.disabled = true;
-});
 
 formAddBtn.addEventListener('click', () => {
 	// Form nodes
@@ -72,7 +55,7 @@ formAddBtn.addEventListener('click', () => {
         
         myBookshelf.library = myBookshelf.library.filter(book => book.title !== 'Your Book here!');
     } else {
-        bookBoardMsg = 'Click on the books to get their descriptions!';
+        bookBoardMsg = 'Book was not added to the lybrary!';
     }
    
     
@@ -89,11 +72,71 @@ formAddBtn.addEventListener('click', () => {
 	removeBooks();
     
     
-    console.log(myBookshelf);
+    // console.log(myBookshelf);
     
     // Show bookshelfBoard
-    showBookBoard('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
+    showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 }); 
+
+
+formEditBtn.addEventListener('click', () => {
+	// Extract selected book from library
+	myBookshelf.library = myBookshelf.library.filter(book => currentSelectedBook.title !== book.title);
+	
+	// Form nodes
+	const nodeTitle = document.getElementById('title');
+	const nodeAuthor = document.getElementById('author');
+	const nodePages = document.getElementById('num-pages');
+	const nodeBookNote = document.getElementById('is-read');
+	
+	let cashedLibraryLength = myBookshelf.library.length;
+    
+	addBookToLibrary(nodeTitle.value, nodeAuthor.value, nodePages.value, nodeBookNote.checked);
+
+    
+    let bookBoardMsg;
+    if (cashedLibraryLength < myBookshelf.library.length) {
+        bookBoardMsg = `The book "${nodeTitle.value}" was edited!`;
+    } else {
+        bookBoardMsg = `The book "${nodeTitle.value}" was NOT edited!`;
+				
+				addBookToLibrary(currentSelectedBook.title, currentSelectedBook.author, currentSelectedBook.numPages, currentSelectedBook.bookState);
+    }
+		
+	
+	// Render library
+	showBooklist(myBookshelf.library);
+	
+	// Pass Eventlisteners
+	getBookDesc();
+	changeBookNotes();
+	removeBooks();
+     
+	console.log(myBookshelf);
+	
+	// Show bookshelfBoard
+	showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
+	
+	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
+});
+
+
+formClearBtn.addEventListener('click', () => {
+	// Form nodes
+	const nodeTitle = document.getElementById('title');
+	const nodeAuthor = document.getElementById('author');
+	const nodePages = document.getElementById('num-pages');
+	const nodeBookNote = document.getElementById('is-read');
+	
+	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
+	
+	let msg = 'There is no selected book!';
+	currentSelectBookTitle.textContent = msg;
+	
+	currentSelectedBook = null;
+	formAddBtn.disabled = false;
+	formEditBtn.disabled = true;
+});
 
 
 function getBookDesc() {
@@ -115,13 +158,13 @@ function getBookDesc() {
             
 						// Deep copy
 						currentSelectedBook = JSON.parse(JSON.stringify(book[0]));
-						console.log(currentSelectedBook);
+						//console.log(currentSelectedBook);
 						showSelectedBook(currentSelectedBook);
 						
             // Alternative book method details
             let message = book[0].description();
 
-            showBookBoard('h4', book[0].info(), 'booklist-partition__board-text2', myBookshelf);
+            showBookDescription('h4', book[0].info(), 'booklist-partition__board-text2', myBookshelf);
         });
     });
 }
@@ -219,6 +262,12 @@ function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
 	nodeAuthor.value = '';
 	nodePages.value = '';
 	nodeBookNote.checked = false;
+	
+	currentSelectedBook = null;
+	formAddBtn.disabled = false;
+	formEditBtn.disabled = true;
+	
+	console.log(myBookshelf);
 }
 
 function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
@@ -248,7 +297,7 @@ function checkLibrary() {
 		removeBooks();
         
         // Show bookshelfBoard
-        showBookBoard('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf, myBookshelf);
+        showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 	} else {
 		const defaultBook = {
             title: 'Your Book here!', 
@@ -267,7 +316,7 @@ function checkLibrary() {
 		removeBooks();
         
         // Show bookshelfBoard
-        showBookBoard('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
+        showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 	}
 }
 
