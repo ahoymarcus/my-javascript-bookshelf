@@ -7,7 +7,7 @@ function Library(title) {
 
 
 Library.prototype.addBook = function(book) {
-    let newBook = new Book(book.title, book.author, book.numPages, book.bookState);
+    let newBook = new Book(book.title, book.author, book.numPages, book.bookRead);
     
     this.library.push(newBook);
 }
@@ -16,7 +16,7 @@ Library.prototype.addBookList = function(books) {
     if (Array.isArray(books)) {
         for (let i in books) {
             
-            let newBook = new Book(books[i].title, books[i].author, books[i].numPages, books[i].bookState);
+            let newBook = new Book(books[i].title, books[i].author, books[i].numPages, books[i].bookRead);
             
 //             console.log(newBook);
             

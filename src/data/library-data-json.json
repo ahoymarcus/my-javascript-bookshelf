@@ -10,7 +10,7 @@
         "edition": 1,
         "releaseYear": "",
         "numPages": 0, 
-        "bookState": "",
+        "bookRead": "",
         "date": "",
         "lastChange": ""
     },
@@ -28,7 +28,7 @@
         "edition": 1,
         "releaseYear": "",
         "numPages": 295, 
-        "bookState": "already read",
+        "bookRead": "already read",
         "date": "",
         "lastChange": ""
     },
@@ -43,7 +43,7 @@
         "edition": 1,
         "releaseYear": "",
         "numPages": 395, 
-        "bookState": "not read yet",
+        "bookRead": "not read yet",
         "date": "",
         "lastChange": ""
     },
@@ -58,7 +58,7 @@
         "edition": 1,
         "releaseYear": "",
         "numPages": 395, 
-        "bookState": "not read yet",
+        "bookRead": "not read yet",
         "date": "",
         "lastChange": ""
     },
@@ -73,7 +73,7 @@
         "edition": 1,
         "releaseYear": "",
         "numPages": 395, 
-        "bookState": "not read yet",
+        "bookRead": "not read yet",
         "date": "",
         "lastChange": ""
     }

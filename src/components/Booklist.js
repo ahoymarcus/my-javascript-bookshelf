@@ -18,10 +18,10 @@ function showBooklist(list) {
 		const para1 = createDOMNode('p', `${book.numPages} pages`, 'booklist-partition__pages');
 		
 		let span;
-		if (book.bookState === 'already read') {
-			span = createDOMNode('span', book.bookState, 'booklist-partition__book-read', 'book-note');	
+		if (book.bookRead === 'already read') {
+			span = createDOMNode('span', book.bookRead, 'booklist-partition__book-read', 'book-note');	
 		} else {
-			span = createDOMNode('spam', book.bookState, 'booklist-partition__book-not-read', 'book-note');
+			span = createDOMNode('spam', book.bookRead, 'booklist-partition__book-not-read', 'book-note');
 		}
 		
 		

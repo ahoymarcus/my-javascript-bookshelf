@@ -17,8 +17,7 @@ const aboutSection = document.getElementById('description-partition__about');
 const formAddBtn = document.querySelector('.form-partition__add');
 const formClearBtn = document.querySelector('.form-partition__clear');
 const formEditBtn = document.querySelector('.form-partition__edit');
-const bookshelfBoard = document.getElementById('book-desc');
-const currentSelectBookTitle = document.querySelector('.form-partition__selected');
+
 
 let currentSelectedBook;
 const myBookshelf = new Library('JavaScript Bookshelf');
@@ -28,7 +27,6 @@ checkLibrary();
 
 
 aboutSection.addEventListener('click', () => {
-	console.log('test about section');
 	let message = 'Welcome, to the JS-Library and fell free share your books here!';
 	
 	showMessageBoard('h3', message, 'message-board-msg');
@@ -74,7 +72,6 @@ formAddBtn.addEventListener('click', () => {
     
     // console.log(myBookshelf);
     
-    // Show bookshelfBoard
     showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 }); 
 
@@ -102,7 +99,7 @@ formEditBtn.addEventListener('click', () => {
         bookBoardMsg = `The book "${nodeTitle.value}" was NOT edited!`;
 				
 				// Validate fiels, turn into Book object and Add
-				addBookToLibrary(currentSelectedBook.title, currentSelectedBook.author, currentSelectedBook.numPages, currentSelectedBook.bookState);
+				addBookToLibrary(currentSelectedBook.title, currentSelectedBook.author, currentSelectedBook.numPages, currentSelectedBook.bookRead);
     }
 		
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
@@ -119,7 +116,6 @@ formEditBtn.addEventListener('click', () => {
      
 	console.log(myBookshelf);
 	
-	// Show bookshelfBoard
 	showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 });
 
@@ -219,18 +215,21 @@ function addBookToLibrary(title, author, numPages, bookState) {
 		}
 		
 		console.log('input checked value: ', bookState);
+		let bookRead = '';
 		if (bookState) {
-			bookState = 'already read';
+			bookRead = 'already read';
 		} else {
-			bookState = 'not read yet';
+			bookRead = 'not read yet';
 		}
 		
         const newBook = {
             title,
             author,
             numPages,
-            bookState
+            bookRead
         };
+		
+		console.log(bookRead);
 		
 		myBookshelf.addBook(newBook);
 		
@@ -269,7 +268,7 @@ function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
 function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
 	myBookshelf.library.map((book, idx) => {
 		if (idx === noteId) {
-			book.bookState = note;
+			book.bookRead = note;
 		}
 	});
 	
@@ -292,14 +291,13 @@ function checkLibrary() {
 		changeBookNotes();
 		removeBooks();
         
-        // Show bookshelfBoard
         showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 	} else {
 		const defaultBook = {
             title: 'Your Book here!', 
             author: 'This is also for you! :-)', 
             numPages: 'All that you need: ', 
-            bookState: 'not read yet',
+            bookRead: 'not read yet',
         };
 		myBookshelf.addBook(defaultBook);
 		
@@ -310,8 +308,7 @@ function checkLibrary() {
 		
 		// Pass Eventlisteners
 		removeBooks();
-        
-        // Show bookshelfBoard
+       
         showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 	}
 }

@@ -1,4 +1,4 @@
-function Book(title, author, numPages, bookState) {
+function Book(title, author, numPages, bookRead) {
 	this.title = title;
 	this.author = author;
 	this.coauthors = [];
@@ -9,7 +9,7 @@ function Book(title, author, numPages, bookState) {
 	this.edition = 1;
 	this.releaseYear = new Date();
 	this.numPages = numPages;
-	this.bookState = bookState;
+	this.bookRead = bookRead;
 	this.date = new Date()
 	this.lastChange = new Date();
 	
@@ -17,7 +17,7 @@ function Book(title, author, numPages, bookState) {
 } 
 
 Book.prototype.info = function() {
-	const shortDesc = `The book "${this.title}" by ${this.author} has ${this.numPages} pages, in ${this.numVolumes} volume(s). It is a ${this.bookCategory.toUpperCase()} publication by ${this.publisher} Editors, released in "${this.bookType}" format, in ${this.releaseYear.getFullYear()} - "${this.bookState.toUpperCase()}" ::: ${this.bookDesc}
+	const shortDesc = `The book "${this.title}" by ${this.author} has ${this.numPages} pages, in ${this.numVolumes} volume(s). It is a ${this.bookCategory.toUpperCase()} publication by ${this.publisher} Editors, released in "${this.bookType}" format, in ${this.releaseYear.getFullYear()} - "${this.bookRead.toUpperCase()}" ::: ${this.bookDesc}
 	`;
 			
 	return shortDesc;

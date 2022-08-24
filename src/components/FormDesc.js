@@ -13,6 +13,29 @@ const nodeBookNote = document.getElementById('is-read');
 
 let defaultMsg = 'There is no selected book!';
 
+const formFields = {
+	currentBook: null,
+	bookTitle: null,
+	bookAuthor: null,
+	numPages: 0, 
+	bookState: 'not read yet'
+};
+
+
+function getFormFields() {
+	const nodeTitle = document.getElementById('title');
+	const nodeAuthor = document.getElementById('author');
+	const nodePages = document.getElementById('num-pages');
+	const nodeBookNote = document.getElementById('is-read');
+	
+	formFields.bookTitle = nodeTitle.value;
+	formFields.bookAuthor = nodeAuthor.value;
+	formFields.numPages = nodePages.value;
+	formFields.bookState = nodeBookNote.checked;
+}
+
+
+
 function controlFormUI(book) {
 	if (book) {
 		currentBookNode.textContent = book.title.toUpperCase();
