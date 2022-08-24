@@ -7,7 +7,7 @@ import Library from './model/Library.js';
 import showBooklist from './components/Booklist.js';
 import showMessageBoard from './components/MessageBoard.js';
 import showBookDescription from './components/BookDesc.js';
-import showSelectedBook from './components/SelectedBook.js';
+import controlFormUI from './components/FormDesc.js';
 
 // book data
 import { libraryDataArr } from './data/library-data-array.js';
@@ -90,7 +90,8 @@ formEditBtn.addEventListener('click', () => {
 	const nodeBookNote = document.getElementById('is-read');
 	
 	let cashedLibraryLength = myBookshelf.library.length;
-    
+  
+	// Validate fiels, turn into Book object and Add
 	addBookToLibrary(nodeTitle.value, nodeAuthor.value, nodePages.value, nodeBookNote.checked);
 
     
@@ -100,9 +101,13 @@ formEditBtn.addEventListener('click', () => {
     } else {
         bookBoardMsg = `The book "${nodeTitle.value}" was NOT edited!`;
 				
+				// Validate fiels, turn into Book object and Add
 				addBookToLibrary(currentSelectedBook.title, currentSelectedBook.author, currentSelectedBook.numPages, currentSelectedBook.bookState);
     }
 		
+	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
+	
+	controlFormUI(currentSelectedBook);
 	
 	// Render library
 	showBooklist(myBookshelf.library);
@@ -116,8 +121,6 @@ formEditBtn.addEventListener('click', () => {
 	
 	// Show bookshelfBoard
 	showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
-	
-	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 });
 
 
@@ -130,12 +133,7 @@ formClearBtn.addEventListener('click', () => {
 	
 	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
 	
-	let msg = 'There is no selected book!';
-	currentSelectBookTitle.textContent = msg;
-	
-	currentSelectedBook = null;
-	formAddBtn.disabled = false;
-	formEditBtn.disabled = true;
+	controlFormUI(currentSelectedBook);
 });
 
 
@@ -159,7 +157,9 @@ function getBookDesc() {
 						// Deep copy
 						currentSelectedBook = JSON.parse(JSON.stringify(book[0]));
 						//console.log(currentSelectedBook);
-						showSelectedBook(currentSelectedBook);
+						controlFormUI(currentSelectedBook);
+						
+						
 						
             // Alternative book method details
             let message = book[0].description();
@@ -264,10 +264,6 @@ function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
 	nodeBookNote.checked = false;
 	
 	currentSelectedBook = null;
-	formAddBtn.disabled = false;
-	formEditBtn.disabled = true;
-	
-	console.log(myBookshelf);
 }
 
 function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
