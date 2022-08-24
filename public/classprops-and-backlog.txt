@@ -1,5 +1,6 @@
 Backlog:
 
+000 fix form after editing. There is a book still selected...
 0. update UML
 0.0. create Form.js e FormDesc.js component.
 1. validate Library.addBookList(books) for strings/JSON.
