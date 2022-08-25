@@ -26,12 +26,14 @@ function getFormFields() {
 	formFields.author = document.getElementById('author').value;
 	formFields.nPages = document.getElementById('num-pages').value;
 	
-	// insert validation here!!!!!
-	formFields.bRead = document.getElementById('is-read').checked;
+	if (document.getElementById('is-read').checked) {
+		formFields.bRead = 'already read';
+	} else {
+		formFields.bRead = 'not read yet';
+	}
 
 	return formFields;
 }
-
 
 
 function setFormFields(selectedBook) {
@@ -40,7 +42,12 @@ function setFormFields(selectedBook) {
 		nodeTitle.value = selectedBook.title;
 		nodeAuthor.value = selectedBook.author;
 		nodePages.value = selectedBook.numPages;
-		nodeBookNote.checked = selectedBook.bookState;
+		
+		if (selectedBook.bookRead === 'already read') {
+			nodeBookNote.checked = true;
+		} else {
+			nodeBookNote.checked = false;
+		}
 		
 		formAddBtn.disabled = true;
 		formEditBtn.disabled = false;
