@@ -78,7 +78,7 @@ h5 {
 	font-size: 1rem;
 }
 
-
+/* HEADER and  NAVBAR */
 .header {
 	background-color: transparent; /* #1F2937;*/
 	display: flex;
@@ -145,6 +145,8 @@ h5 {
 	padding: 4px 0;
 }
 
+
+/* LIBRARY DESCRIPTION PARTITION */
 .description-partition, .form-partition {
 	background: radial-gradient(#ac7732 5%, #d19341 1%,  #b1762a 1%, #874e03);
 	border-radius: 5px;
@@ -157,7 +159,7 @@ h5 {
 	min-width: 370px;
 	max-width: 370px;
 	margin-top: 20px;
-	/* margin-bottom: 110px; */
+	margin-bottom: 100px;
 }
 
 .description-partition__shelf {
@@ -200,6 +202,39 @@ h5 {
 }
 
 
+/* SEARCH FORM */
+.search-form {
+	color: #944e4e;
+	background-color: #9290F8;
+	width: 80%;
+	max-width: 420px;
+	margin: auto;
+	margin-bottom: 100px;
+	padding: 15px 20px 20px;
+	border-radius: 4px;
+}
+
+.search-form__legend { 
+	font-size: 1.5rem;
+	font-weight: bold; 
+	font-family: "Segoe UI", "Arial", "Times New Roman";
+	margin-bottom: 25px; 
+	/* text-align: center; */
+	text-decoration: underline;
+}
+
+.search-form__label { 
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+.search-form__input { 
+	background-color: #F6D493; /*rgba(255, 255, 0, 0.8);*/
+	width: 80%;
+	padding: 4px;
+}
+
+
+/* MESSAGE BOARD */
 .message-board {
 	color: #efb1b1;
 	font-weight: bold;
@@ -231,6 +266,7 @@ h5 {
 }
 
 
+/* FORM PARTITION */
 .form-partition {
 	margin-bottom: 110px;
 	width: 96%;
@@ -296,6 +332,7 @@ h5 {
 }
 
 
+/* BOOKLIST PARTITION */
 .booklist-partition {
 	background-color: #739195; /*#2e2d27; #fff9c9; #F6D493;*/
 	overflow: auto;
@@ -425,6 +462,7 @@ h5 {
 }
 
 
+/* ASIDE SECTION */
 .aside-section {
 	background-color: beige;
 	
@@ -432,6 +470,11 @@ h5 {
 
 .aside-image {
 	width: 100%;
+}
+
+
+.book-stack {
+	padding-top: 30px;
 }
 
 .book-stack__icon {
@@ -475,14 +518,13 @@ h5 {
 
 
 
-
-
-
 .div-support-bottom {
 	background-color: #b9afaf;
 	height: 4px;
 }
 
+
+/* FOOTER */
 .footer {
 	background-color: #9290F8;
 }
@@ -509,6 +551,7 @@ h5 {
 }
 
 
+/* MEDIA QUERIES */
 @media only screen and (min-width: 540px) {
 	.div-shelf-support-top {
 		width: 87%;
@@ -601,10 +644,6 @@ h5 {
 		font-size: 1.3rem;
 		padding-left: 12px;
 		padding-right: 12px;
-	}
-	
-	.aside-section {
-		/* grid-template-columns: 0.8fr 1.2fr; */
 	}
 }
 

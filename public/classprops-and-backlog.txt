@@ -1,7 +1,6 @@
 Backlog:
 
-0. Put icon8 ref down in the layout. Create a last section to it.
-00. Create a search field to search title and author.
+0. Create a search field to search title and author.
 1. update UML
 2. Add LocalStorage
 3. validate Library.addBookList(books) for strings/JSON.
