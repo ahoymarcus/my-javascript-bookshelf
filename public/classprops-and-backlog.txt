@@ -1,5 +1,6 @@
 Backlog:
 
+00. refactor addBookToLibrary (separate the validation)
 0. Create Form.js e FormDesc.js component.
 1. update UML
 2. Add LocalStorage

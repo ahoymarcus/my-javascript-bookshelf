@@ -7,7 +7,7 @@ import Library from './model/Library.js';
 import showBooklist from './components/Booklist.js';
 import showMessageBoard from './components/MessageBoard.js';
 import showBookDescription from './components/BookDesc.js';
-import controlFormUI from './components/FormDesc.js';
+import { getFormFields, setFormFields, clearFormSheet } from './components/FormDesc.js';
 
 // book data
 import { libraryDataArr } from './data/library-data-array.js';
@@ -34,32 +34,24 @@ aboutSection.addEventListener('click', () => {
 
 
 formAddBtn.addEventListener('click', () => {
-	// Form nodes
-	const nodeTitle = document.getElementById('title');
-	const nodeAuthor = document.getElementById('author');
-	const nodePages = document.getElementById('num-pages');
-	const nodeBookNote = document.getElementById('is-read');
-	
-	console.log('input checked value: ', nodeBookNote.checked);
-	
-    let cashedLibraryLength = myBookshelf.library.length;
-    
-	addBookToLibrary(nodeTitle.value, nodeAuthor.value, nodePages.value, nodeBookNote.checked);
+	let formFields = getFormFields();
 
+  let cashedLibraryLength = myBookshelf.library.length;
     
-    let bookBoardMsg;
-    if (cashedLibraryLength !== myBookshelf.library.length) {
-        bookBoardMsg = `Your book "${nodeTitle.value}" was added to the JS-LIBRARY!`;
-        
-        myBookshelf.library = myBookshelf.library.filter(book => book.title !== 'Your Book here!');
-    } else {
-        bookBoardMsg = 'Book was not added to the lybrary!';
-    }
-   
+	addBookToLibrary(formFields.title, formFields.author, formFields.nPages, formFields.bRead);
+  
+	let bookBoardMsg;
+	if (cashedLibraryLength !== myBookshelf.library.length) {
+		bookBoardMsg = `Your book "${formFields.title}" was added to the JS-LIBRARY!`;
+			
+		myBookshelf.library = myBookshelf.library.filter(book => book.title !== 'Your Book here!');
+	} else {
+		bookBoardMsg = 'Book was not added to the lybrary!';
+	} 
     
-	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
+	clearFormSheet();
 	
-    
+  currentSelectedBook = null; 
     
 	// Render library
 	showBooklist(myBookshelf.library);
@@ -69,10 +61,7 @@ formAddBtn.addEventListener('click', () => {
 	changeBookNotes();
 	removeBooks();
     
-    
-    // console.log(myBookshelf);
-    
-    showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
+  showBookDescription('h4', bookBoardMsg, 'booklist-partition__board-text2', myBookshelf);
 }); 
 
 
@@ -80,31 +69,28 @@ formEditBtn.addEventListener('click', () => {
 	// Extract selected book from library
 	myBookshelf.library = myBookshelf.library.filter(book => currentSelectedBook.title !== book.title);
 	
-	// Form nodes
-	const nodeTitle = document.getElementById('title');
-	const nodeAuthor = document.getElementById('author');
-	const nodePages = document.getElementById('num-pages');
-	const nodeBookNote = document.getElementById('is-read');
+	let formFields = getFormFields();
 	
 	let cashedLibraryLength = myBookshelf.library.length;
   
 	// Validate fiels, turn into Book object and Add
-	addBookToLibrary(nodeTitle.value, nodeAuthor.value, nodePages.value, nodeBookNote.checked);
+	addBookToLibrary(formFields.title, formFields.author, formFields.nPages, formFields.bRead);
 
-    
-    let bookBoardMsg;
-    if (cashedLibraryLength < myBookshelf.library.length) {
-        bookBoardMsg = `The book "${nodeTitle.value}" was edited!`;
-    } else {
-        bookBoardMsg = `The book "${nodeTitle.value}" was NOT edited!`;
-				
-				// Validate fiels, turn into Book object and Add
-				addBookToLibrary(currentSelectedBook.title, currentSelectedBook.author, currentSelectedBook.numPages, currentSelectedBook.bookRead);
-    }
+	let bookBoardMsg;
+	if (cashedLibraryLength < myBookshelf.library.length) {
+		bookBoardMsg = `The book "${formFields.title}" was edited!`;
+	} else {
+		bookBoardMsg = `The book "${formFields.title}" was NOT edited!`;
 		
-	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
+		// Validate fiels, turn into Book object and Add
+		addBookToLibrary(currentSelectedBook.title, currentSelectedBook.author, currentSelectedBook.numPages, currentSelectedBook.bookRead);
+	}
+		
+	clearFormSheet();
 	
-	controlFormUI(currentSelectedBook);
+	currentSelectedBook = null;
+	
+	setFormFields(currentSelectedBook);
 	
 	// Render library
 	showBooklist(myBookshelf.library);
@@ -121,48 +107,38 @@ formEditBtn.addEventListener('click', () => {
 
 
 formClearBtn.addEventListener('click', () => {
-	// Form nodes
-	const nodeTitle = document.getElementById('title');
-	const nodeAuthor = document.getElementById('author');
-	const nodePages = document.getElementById('num-pages');
-	const nodeBookNote = document.getElementById('is-read');
-	
-	clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote);
-	
-	controlFormUI(currentSelectedBook);
+	clearFormSheet();
+	currentSelectedBook = null;
+	setFormFields(currentSelectedBook);
 });
 
 
 function getBookDesc() {
-    const descBtns = document.querySelectorAll('.booklist-partition__bookdesc-btn');
-		
-		
-		
-    descBtns.forEach(btn => {
-        btn.addEventListener('click', e => {
-            //console.dir(e.target);
-            let btnId = Number(e.target.getAttribute('data-id'));
-            console.log(btnId);
-            
-            let book = myBookshelf.library.filter((book, idx) => {
-                if (idx === btnId) {
-                    return book;
-                }
-            });
-            
-						// Deep copy
-						currentSelectedBook = JSON.parse(JSON.stringify(book[0]));
-						//console.log(currentSelectedBook);
-						controlFormUI(currentSelectedBook);
-						
-						
-						
-            // Alternative book method details
-            let message = book[0].description();
+	const descBtns = document.querySelectorAll('.booklist-partition__bookdesc-btn');
+	
+	descBtns.forEach(btn => {
+		btn.addEventListener('click', e => {
+			//console.dir(e.target);
+			let btnId = Number(e.target.getAttribute('data-id'));
+			console.log(btnId);
+			
+			let book = myBookshelf.library.filter((book, idx) => {
+					if (idx === btnId) {
+							return book;
+					}
+			});
+			
+			// Deep copy
+			currentSelectedBook = JSON.parse(JSON.stringify(book[0]));
+			//console.log(currentSelectedBook);
+			setFormFields(currentSelectedBook);
+				
+			// Alternative book method details
+			let message = book[0].description();
 
-            showBookDescription('h4', book[0].info(), 'booklist-partition__board-text2', myBookshelf);
-        });
-    });
+			showBookDescription('h4', book[0].info(), 'booklist-partition__board-text2', myBookshelf);
+		});
+	});
 }
 
 
@@ -222,12 +198,12 @@ function addBookToLibrary(title, author, numPages, bookState) {
 			bookRead = 'not read yet';
 		}
 		
-        const newBook = {
-            title,
-            author,
-            numPages,
-            bookRead
-        };
+		const newBook = {
+				title,
+				author,
+				numPages,
+				bookRead
+		};
 		
 		console.log(bookRead);
 		
@@ -256,15 +232,6 @@ function removeBookfromLibrary(bookIndex) {
 
 
 /* AUXILIARY FUNCTIONS */
-function clearFormSheet(nodeTitle, nodeAuthor, nodePages, nodeBookNote) {
-	nodeTitle.value = '';
-	nodeAuthor.value = '';
-	nodePages.value = '';
-	nodeBookNote.checked = false;
-	
-	currentSelectedBook = null;
-}
-
 function checkBookNote(node, noteId, note, cssToRemove, cssToAdd) {
 	myBookshelf.library.map((book, idx) => {
 		if (idx === noteId) {
