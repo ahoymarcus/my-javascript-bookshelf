@@ -176,6 +176,9 @@ function removeBooks() {
 			console.log(e.target.getAttribute('data-id'));
 			let btnIndex = Number(e.target.getAttribute('data-id'));
 			
+			const removedBook = myBookshelf.library.filter((book, idx) => idx === btnIndex);
+			console.log(removedBook);
+			
 			removeBookfromLibrary(btnIndex);
 			
 			// Render Booklist
@@ -186,6 +189,10 @@ function removeBooks() {
 			changeBookNotes();
 			removeBooks();
 			checkLibrary();
+			
+			if (removedBook[0].title !== 'Your Book here!') {
+				showBookDescription('h4', `The "${removedBook[0].title}" was removed from the library!`, 'booklist-partition__board-text2', myBookshelf);
+			}
 		});
 	});	
 	
