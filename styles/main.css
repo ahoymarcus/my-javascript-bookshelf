@@ -157,7 +157,7 @@ h5 {
 	min-width: 370px;
 	max-width: 370px;
 	margin-top: 20px;
-	margin-bottom: 110px;
+	/* margin-bottom: 110px; */
 }
 
 .description-partition__shelf {
@@ -197,41 +197,6 @@ h5 {
 	background-color: #EDAEAE;
 	height: 10px;
 	margin-bottom: 5px;
-}
-
-
-.book-stack__icon {
-	display: block;
-	margin: auto;
-	text-align: center;
-}
-.book-stack__icon a {
-	color: #b9afaf;
-}
-.book-stack__icon a:hover {
-	text-shadow: 2px 2px white;
-}
-
-.book-stack__ornament1 {
-	background-color: #F6D493;
-	width: 74%;
-	height: 10px;
-	margin: 0 auto 10px;
-	border-radius: 4px;
-}
-.book-stack__ornament2 {
-	background-color: #F6D493;
-	width: 64%;
-	height: 10px;
-	margin: 0 auto 10px;
-	border-radius: 4px;
-}
-.book-stack__ornament3 {
-	background-color: #F6D493;
-	width: 34%;
-	height: 10px;
-	margin: 0 auto 70px;
-	border-radius: 4px;
 }
 
 
@@ -460,43 +425,53 @@ h5 {
 }
 
 
-
-
-
-
-/* .current-book { */
-	/* background-color: white; */
-	/* height: 140px; */
-	/* width: 70%; */
-	/* margin: 0 auto 25px; */
-	/* padding: 20px; */
-	/* border-radius: 70px; */
-	/* text-align: center; */
-/* } */
-
-/* .current-book__intro { */
-	/* text-decoration: underline; */
-	/* margin-bottom: 20px; */
-/* } */
-
-/* .current-book__title { */
-	/* color: red; */
-	/* margin-bottom: 10px; */
-/* } */
-
-/* .current-book__btn { */
-	/* background-color: #F6D493; */
-	/* width: 55px; */
-	/* margin: auto; */
-	/* padding: 3px 0; */
-	/* border-radius: 12px; */
-	/* cursor: pointer; */
+.aside-section {
+	background-color: beige;
 	
-	/* display: none; */
-/* } */
+}
 
+.aside-image {
+	width: 100%;
+}
 
+.book-stack__icon {
+	text-align: center;
+}
 
+.book-stack__links {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+
+.book-stack__links a {
+	color: #b9afaf;
+}
+.book-stack__links a:hover {
+	text-shadow: 2px 2px white;
+}
+
+.book-stack__ornament1 {
+	background-color: #F6D493;
+	width: 74%;
+	height: 10px;
+	margin: 0 auto 10px;
+	border-radius: 4px;
+}
+.book-stack__ornament2 {
+	background-color: #F6D493;
+	width: 64%;
+	height: 10px;
+	margin: 0 auto 10px;
+	border-radius: 4px;
+}
+.book-stack__ornament3 {
+	background-color: #F6D493;
+	width: 34%;
+	height: 10px;
+	margin: 0 auto 70px;
+	border-radius: 4px;
+}
 
 
 
@@ -599,6 +574,20 @@ h5 {
 			'top-area bookshelf';
 		/* grid-column-gap: 50px; */
 	}
+	
+	.aside-section {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+	}
+	
+	.aside-image {
+		object-fit: cover;
+	}
+	
+	.book-stack__links {
+		width: 36%;
+	}
 }
 
 
@@ -612,6 +601,10 @@ h5 {
 		font-size: 1.3rem;
 		padding-left: 12px;
 		padding-right: 12px;
+	}
+	
+	.aside-section {
+		/* grid-template-columns: 0.8fr 1.2fr; */
 	}
 }
 
