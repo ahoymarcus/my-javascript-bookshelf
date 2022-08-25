@@ -1,6 +1,6 @@
 /*
 * 
-*/
+*/ 
 import Library from './model/Library.js';
 
 // Components
@@ -14,6 +14,7 @@ import { libraryDataArr } from './data/library-data-array.js';
 
 // UI nodes
 const aboutSection = document.getElementById('description-partition__about');
+const searchIcon = document.querySelector('.search-form__icon');
 const formAddBtn = document.querySelector('.form-partition__add');
 const formClearBtn = document.querySelector('.form-partition__clear');
 const formEditBtn = document.querySelector('.form-partition__edit');
@@ -30,6 +31,21 @@ aboutSection.addEventListener('click', () => {
 	let message = 'Welcome, to the JS-Library and fell free share your books here!';
 	
 	showMessageBoard('h3', message, 'message-board-msg');
+});
+
+
+searchIcon.addEventListener('click', () => {
+	const inputTitle = document.querySelector('.search-form__input');
+	
+	const regex = new RegExp(`^.*${inputTitle.value}.*$`, 'i');
+	
+	let result = myBookshelf.library.filter(book => {
+		return book.title.match(regex);
+	}).map(book => book.title);
+	
+	console.log(result);
+	
+	showMessageBoard('h3', `${result}`, 'message-board-msg');
 });
 
 
