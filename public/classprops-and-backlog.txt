@@ -1,6 +1,6 @@
 Backlog:
 
-0. update UML
+0. Refactor CSS form-partition class to book-form and update UML (search book and edit book)
 1. Refactor searchIcon.addEventListener()
 2. Add LocalStorage
 3. Extend book properties.

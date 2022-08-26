@@ -216,7 +216,7 @@ h5 {
 /* BOOKSHELF PARTITIONS */
 .forms-partition {
 	background-color: #9290F8; /*#484787; beige; #ebf3e1; #8E001C; #201f61;*/
-	/* padding: 60px 0; */
+	padding: 40px 0;
 }
 
 /* SEARCH FORM */
@@ -489,7 +489,6 @@ h5 {
 
 .booklist-partition__board-text2 {
 	color: #9b5252; /*darker=#fdbb5b; lighter=#f8e0bd;*/
-/* 	margin-top: 40px; */
 }
 
 .booklist-partition__ornament {
@@ -506,7 +505,6 @@ h5 {
 /* ASIDE SECTION */
 .aside-section {
 	/* background-color: #9290F8; /*#201f61;  #D4FABE; #ebf3e1; beige;*/ 
-	height: 680px;
 }
 
 .aside-image {
@@ -663,20 +661,19 @@ h5 {
 		/* grid-column-gap: 50px; */
 	}
 	
-	
 	.search-form {
 		margin-bottom: 70px;
 	}
-	
 	
 	.aside-section {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		align-items: center;
+		height: 680px;
 	}
 	
 	.aside-image {
-		object-fit: cover;
+		/* object-fit: cover; */
 	}
 	
 	.book-stack__ornament1 {
