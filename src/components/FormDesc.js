@@ -1,4 +1,4 @@
-import { createDOMNode, printMsg } from './auxUIFunctions.js';
+import { createDOMNode } from './auxUIFunctions.js';
 
 // UI nodes
 const currentBookFormNode = document.querySelector('.form-partition__selected');

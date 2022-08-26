@@ -1,9 +1,8 @@
 Backlog:
 
-00. Create a search field to search title and author.
 0. update UML
-1. Add LocalStorage
-2. Limit sizes: Booklist and BkooDesc cpmonents. Diminish padding. And possible create a Hero Section with the Descrition-Partition (and level the height for all the main partition)
+1. Refactor searchIcon.addEventListener()
+2. Add LocalStorage
 3. validate Library.addBookList(books) for strings/JSON.
 
 

@@ -30,8 +30,8 @@ checkLibrary();
 aboutSection.addEventListener('click', () => {
 	let message = 'Welcome, to the JS-Library and fell free share your books here!';
 	
-	showMessageBoard('h3', message, 'message-board-msg');
-});
+	showMessageBoard('h3', [message], 'message-board-msg');
+}); 
 
 
 searchIcon.addEventListener('click', () => {
@@ -45,8 +45,25 @@ searchIcon.addEventListener('click', () => {
 	
 	console.log(result);
 	
-	showMessageBoard('h3', `${result}`, 'message-board-msg');
-});
+	
+	const messageBoard = document.getElementById('hidden-message-board');
+	messageBoard.style.display = 'block';
+	
+	result.forEach(title => {
+		let h3 = document.createElement('h3');
+		h3.textContent = title;
+		h3.classList.add('search-form__result');
+		
+		messageBoard.appendChild(h3);
+	});
+	
+	const msgTimeout = setTimeout(() => {
+		messageBoard.style.display = 'none'
+		messageBoard.innerHTML = null;
+	}
+	, 5000);
+	// showMessageBoard('h3', [result], 'message-board-msg');
+}); 
 
 
 formAddBtn.addEventListener('click', () => {
@@ -235,7 +252,7 @@ function addBookToLibrary(title, author, numPages, bookRead) {
 		
 		let message = 'Please, fill all the required fields: TITLE and AUTHOR';
 		
-		showMessageBoard('h4', message, 'message-board-validation');
+		showMessageBoard('h4', [message], 'message-board-validation');
 	}  
 }
 
