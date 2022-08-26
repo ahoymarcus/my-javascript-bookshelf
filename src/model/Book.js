@@ -13,7 +13,7 @@ function Book(title, author, numPages, bookRead) {
 	this.date = new Date()
 	this.lastChange = new Date();
 	
-	this.bookDesc = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque, dolor ac suscipit volutpat, urna odio suscipit tortor, ut condimentum metus nulla sodales nisl. Nullam porttitor finibus metus ut faucibus.`;
+	this.bookDesc = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pellentesque, dolor ac suscipit volutpat, urna odio suscipit tortor, ut condimentum metus nulla sodales nisl.`;
 } 
 
 Book.prototype.info = function() {

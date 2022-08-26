@@ -3,7 +3,8 @@ Backlog:
 0. update UML
 1. Refactor searchIcon.addEventListener()
 2. Add LocalStorage
-3. validate Library.addBookList(books) for strings/JSON.
+3. Extend book properties.
+4. validate Library.addBookList(books) for strings/JSON.
 
 
 

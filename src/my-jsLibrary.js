@@ -36,34 +36,54 @@ aboutSection.addEventListener('click', () => {
 
 searchIcon.addEventListener('click', () => {
 	const inputTitle = document.querySelector('.search-form__input');
+	console.log(inputTitle.value);
 	
 	const regex = new RegExp(`^.*${inputTitle.value}.*$`, 'i');
 	
-	let result = myBookshelf.library.filter(book => {
-		return book.title.match(regex);
-	}).map(book => book.title);
-	
-	console.log(result);
-	
-	
-	const messageBoard = document.getElementById('hidden-message-board');
-	messageBoard.style.display = 'block';
-	
-	result.forEach(title => {
-		let h3 = document.createElement('h3');
-		h3.textContent = title;
-		h3.classList.add('search-form__result');
+	if (inputTitle.value) {
+		const messageBoard = document.getElementById('hidden-message-board');
 		
-		messageBoard.appendChild(h3);
-	});
-	
-	const msgTimeout = setTimeout(() => {
-		messageBoard.style.display = 'none'
-		messageBoard.innerHTML = null;
+		let result = myBookshelf.library.filter(book => {
+			return book.title.match(regex);
+		}).map(book => book.title);
+		
+		console.log(result);
+		console.log(result.length);
+		
+		if (result.length > 0) {
+			messageBoard.style.display = 'block';
+			
+			result.forEach(title => {
+				let h3 = document.createElement('h3');
+				h3.textContent = title;
+				h3.classList.add('search-form__result');
+				
+				messageBoard.appendChild(h3);
+			});
+			
+			const msgTimeout = setTimeout(() => {
+				messageBoard.style.display = 'none'
+				messageBoard.innerHTML = null;
+			}
+			, 5000);
+		} else {
+			messageBoard.style.display = 'block';
+			
+			let h3 = document.createElement('h3');
+			h3.textContent = 'No books found!';
+			h3.classList.add('search-form__result');
+			messageBoard.appendChild(h3);
+			
+			const msgTimeout = setTimeout(() => {
+				messageBoard.style.display = 'none'
+				messageBoard.innerHTML = null;
+			}
+			, 5000);
+		}
+		
+		inputTitle.value = '';
 	}
-	, 5000);
-	// showMessageBoard('h3', [result], 'message-board-msg');
-}); 
+});     
 
 
 formAddBtn.addEventListener('click', () => {
