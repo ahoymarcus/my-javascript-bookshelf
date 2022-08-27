@@ -2,8 +2,8 @@ Backlog:
 
 1. Refactor CSS class "form-partition" as "book-form".
 2. Refactor searchIcon.addEventListener()
-3. Add LocalStorage
-4. Extend book properties.
+3. Extend book properties.
+4. Add LocalStorage
 5. validate Library.addBookList(books) for strings/JSON.
 
 
